@@ -10,8 +10,8 @@ interface Props {
 
 export default function SpeechPractice({ targetText, chineseText, pinyin, onClose }: Props) {
   const { 
-    isListening, transcript, isSpeaking,
-    speakLao, speakSlow, startListening, stopListening, compareText 
+    isListening, transcript, isSpeaking, isSupported,
+    speakLao, speakSlow, speakThai, speakChinese, startListening, stopListening, compareText 
   } = useSpeech();
   
   const [score, setScore] = useState<number | null>(null);
@@ -57,48 +57,68 @@ export default function SpeechPractice({ targetText, chineseText, pinyin, onClos
 
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex items-end justify-center">
-      <div className="bg-white rounded-t-3xl w-full max-w-[480px] max-h-[85vh] overflow-y-auto">
+      <div className="bg-white dark:bg-gray-800 rounded-t-3xl w-full max-w-[480px] max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className="sticky top-0 bg-white border-b border-gray-100 px-6 py-4 rounded-t-3xl">
-          <div className="w-12 h-1 bg-gray-300 rounded-full mx-auto mb-3" />
-          <h2 className="text-lg font-semibold text-center">🎤 语音跟读</h2>
+        <div className="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 px-6 py-4 rounded-t-3xl">
+          <div className="w-12 h-1 bg-gray-300 dark:bg-gray-600 rounded-full mx-auto mb-3" />
+          <h2 className="text-lg font-semibold text-center dark:text-white">🎤 语音跟读</h2>
         </div>
 
         <div className="px-6 py-4 space-y-4">
+          {/* Voice Support Status */}
+          {!isSupported.synthesis && (
+            <div className="bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-xl p-3">
+              <p className="text-sm text-red-700 dark:text-red-300">
+                ⚠️ 你的浏览器不支持语音播放，请使用 <b>Chrome</b> 或 <b>Edge</b> 浏览器
+              </p>
+            </div>
+          )}
+
           {/* Target Text */}
-          <div className="bg-blue-50 rounded-2xl p-5 text-center">
+          <div className="bg-blue-50 dark:bg-blue-900/30 rounded-2xl p-5 text-center">
             <div className="text-xs text-blue-400 mb-2">跟读目标</div>
-            <div className="lao-text text-4xl font-bold text-gray-800 mb-2">{targetText}</div>
-            <div className="text-lg text-gray-600">{chineseText}</div>
-            {pinyin && <div className="text-sm text-amber-600 mt-1 font-mono">{pinyin}</div>}
+            <div className="lao-text text-4xl font-bold text-gray-800 dark:text-white mb-2">{targetText}</div>
+            <div className="text-lg text-gray-600 dark:text-gray-300">{chineseText}</div>
+            {pinyin && <div className="text-sm text-amber-600 dark:text-amber-400 mt-1 font-mono">{pinyin}</div>}
           </div>
 
           {/* Listen Buttons */}
-          <div className="flex gap-3">
-            <button
-              onClick={() => speakLao(targetText)}
-              disabled={isSpeaking}
-              className="flex-1 py-3 bg-blue-600 text-white rounded-xl font-semibold 
-                         hover:bg-blue-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
-            >
-              {isSpeaking ? (
-                <>
-                  <span className="animate-pulse">🔊</span> 播放中...
-                </>
-              ) : (
-                <>
-                  🔊 正常语速
-                </>
-              )}
-            </button>
-            <button
-              onClick={() => speakSlow(targetText)}
-              disabled={isSpeaking}
-              className="flex-1 py-3 bg-purple-600 text-white rounded-xl font-semibold 
-                         hover:bg-purple-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
-            >
-              🐢 慢速播放
-            </button>
+          <div className="space-y-2">
+            <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">🔊 点击听发音：</div>
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                onClick={() => speakLao(targetText)}
+                disabled={isSpeaking}
+                className="py-3 bg-blue-600 text-white rounded-xl font-semibold 
+                           hover:bg-blue-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+              >
+                {isSpeaking ? '🔊 播放中...' : '🇱🇦 老挝语'}
+              </button>
+              <button
+                onClick={() => speakSlow(targetText)}
+                disabled={isSpeaking}
+                className="py-3 bg-purple-600 text-white rounded-xl font-semibold 
+                           hover:bg-purple-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+              >
+                {isSpeaking ? '🔊 播放中...' : '🐢 慢速'}
+              </button>
+              <button
+                onClick={() => speakThai(targetText)}
+                disabled={isSpeaking}
+                className="py-3 bg-green-600 text-white rounded-xl font-semibold 
+                           hover:bg-green-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+              >
+                {isSpeaking ? '🔊 播放中...' : '🇹🇭 泰语近似'}
+              </button>
+              <button
+                onClick={() => speakChinese(chineseText)}
+                disabled={isSpeaking}
+                className="py-3 bg-amber-600 text-white rounded-xl font-semibold 
+                           hover:bg-amber-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+              >
+                {isSpeaking ? '🔊 播放中...' : '🇨🇳 中文'}
+              </button>
+            </div>
           </div>
 
           {/* Record Button */}
@@ -113,11 +133,23 @@ export default function SpeechPractice({ targetText, chineseText, pinyin, onClos
             {isListening ? '⏹️ 停止录音' : '🎙️ 开始跟读'}
           </button>
 
+          {/* Browser Support Info */}
+          <div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-3">
+            <div className="text-xs text-gray-500 dark:text-gray-400">
+              <span className="font-semibold">💡 语音说明：</span>
+              <ul className="mt-1 space-y-1 list-disc list-inside">
+                <li>老挝语发音可能由泰语或中文语音引擎模拟</li>
+                <li>语音识别需要授权麦克风权限</li>
+                <li>建议使用 <b>Chrome</b> 浏览器获得最佳效果</li>
+              </ul>
+            </div>
+          </div>
+
           {/* Transcript */}
           {transcript && (
-            <div className="bg-gray-50 rounded-xl p-4">
+            <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4">
               <div className="text-xs text-gray-400 mb-1">识别结果</div>
-              <div className="lao-text text-xl text-gray-800">{transcript}</div>
+              <div className="lao-text text-xl text-gray-800 dark:text-white">{transcript}</div>
             </div>
           )}
 
@@ -137,10 +169,10 @@ export default function SpeechPractice({ targetText, chineseText, pinyin, onClos
 
           {/* Attempts History */}
           {attempts.length > 0 && (
-            <div className="bg-gray-50 rounded-xl p-4">
+            <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs text-gray-400">练习记录</span>
-                <span className="text-xs font-semibold text-blue-600">平均 {avgScore} 分</span>
+                <span className="text-xs font-semibold text-blue-600 dark:text-blue-400">平均 {avgScore} 分</span>
               </div>
               <div className="flex gap-2 flex-wrap">
                 {attempts.map((a, i) => (
@@ -152,18 +184,10 @@ export default function SpeechPractice({ targetText, chineseText, pinyin, onClos
             </div>
           )}
 
-          {/* Tips */}
-          <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
-            <p className="text-sm text-amber-800">
-              <span className="font-semibold">💡 跟读技巧：</span>
-              先听2-3遍，注意声调变化，然后尽量模仿语调和节奏。
-            </p>
-          </div>
-
           {/* Close */}
           <button
             onClick={onClose}
-            className="w-full py-3 bg-gray-100 text-gray-600 rounded-xl font-semibold hover:bg-gray-200 transition-colors"
+            className="w-full py-3 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-xl font-semibold hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
           >
             关闭
           </button>
