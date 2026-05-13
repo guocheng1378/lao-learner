@@ -1,6 +1,7 @@
 import type { Page } from '../hooks/useNavigation';
 import { useTheme } from '../hooks/useTheme';
 import { useStats } from '../hooks/useStats';
+import { useSpeech } from '../hooks/useSpeech';
 
 interface Props {
   navigate: (page: Page) => void;
@@ -26,6 +27,7 @@ const toolMenuItems = [
 export default function HomePage({ navigate }: Props) {
   const { toggleTheme, isDark } = useTheme();
   const { getTodayStats, stats } = useStats();
+  const { speakLao, speakChinese, isSpeaking } = useSpeech();
   const today = getTodayStats();
 
   return (
@@ -107,6 +109,35 @@ export default function HomePage({ navigate }: Props) {
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{item.subtitle}</p>
             </button>
           ))}
+        </div>
+      </div>
+
+      {/* Audio Test */}
+      <div className="px-4 pb-4">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border border-gray-100 dark:border-gray-700">
+          <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-3">🔊 语音测试</h2>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">点击下面按钮测试语音是否正常工作：</p>
+          <div className="flex gap-2">
+            <button
+              onClick={() => speakLao('ສະບາຍດີ')}
+              disabled={isSpeaking}
+              className="flex-1 py-3 bg-blue-600 text-white rounded-xl font-semibold 
+                         hover:bg-blue-700 transition-colors disabled:opacity-50"
+            >
+              {isSpeaking ? '🔊 播放中...' : '🇱🇦 测试老挝语'}
+            </button>
+            <button
+              onClick={() => speakChinese('你好')}
+              disabled={isSpeaking}
+              className="flex-1 py-3 bg-amber-600 text-white rounded-xl font-semibold 
+                         hover:bg-amber-700 transition-colors disabled:opacity-50"
+            >
+              {isSpeaking ? '🔊 播放中...' : '🇨🇳 测试中文'}
+            </button>
+          </div>
+          <p className="text-xs text-gray-400 dark:text-gray-500 mt-2">
+            💡 如果听不到声音，请使用 Chrome 浏览器并检查系统音量
+          </p>
         </div>
       </div>
 
