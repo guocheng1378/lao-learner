@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { vocabulary, categories } from '../data/vocabulary';
+import { useSpeech } from '../hooks/useSpeech';
+import SpeechPractice from '../components/SpeechPractice';
 
 interface Props {
   goBack: () => void;
@@ -8,6 +10,8 @@ interface Props {
 export default function VocabularyPage({ goBack }: Props) {
   const [category, setCategory] = useState<string>('all');
   const [showPinyin, setShowPinyin] = useState(true);
+  const [practiceIndex, setPracticeIndex] = useState<number | null>(null);
+  const { speakLao, isSpeaking } = useSpeech();
 
   const filtered = category === 'all' 
     ? vocabulary 
@@ -64,19 +68,56 @@ export default function VocabularyPage({ goBack }: Props) {
       <div className="px-4 py-4 space-y-2">
         {filtered.map((item, i) => (
           <div key={i} className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
-            <div className="flex items-baseline justify-between">
-              <span className="lao-text text-2xl font-semibold text-gray-800">{item.lao}</span>
-              <span className="text-xs px-2 py-0.5 bg-blue-50 text-blue-600 rounded-full">
-                {item.category}
-              </span>
+            <div className="flex items-center justify-between">
+              <div className="flex-1">
+                <div className="flex items-baseline gap-2">
+                  <span className="lao-text text-2xl font-semibold text-gray-800">{item.lao}</span>
+                  <span className="text-xs px-2 py-0.5 bg-blue-50 text-blue-600 rounded-full">
+                    {item.category}
+                  </span>
+                </div>
+                <div className="text-gray-700 mt-1">{item.chinese}</div>
+                {showPinyin && (
+                  <div className="text-sm text-amber-600 mt-1 font-mono">{item.pinyin}</div>
+                )}
+              </div>
+              
+              <div className="flex gap-2">
+                {/* 听发音按钮 */}
+                <button
+                  onClick={() => speakLao(item.lao)}
+                  disabled={isSpeaking}
+                  className="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center 
+                             hover:bg-blue-200 transition-colors disabled:opacity-50"
+                  title="听发音"
+                >
+                  🔊
+                </button>
+                
+                {/* 跟读练习按钮 */}
+                <button
+                  onClick={() => setPracticeIndex(i)}
+                  className="w-10 h-10 bg-green-100 text-green-600 rounded-full flex items-center justify-center 
+                             hover:bg-green-200 transition-colors"
+                  title="跟读练习"
+                >
+                  🎤
+                </button>
+              </div>
             </div>
-            <div className="text-gray-700 mt-1">{item.chinese}</div>
-            {showPinyin && (
-              <div className="text-sm text-amber-600 mt-1 font-mono">{item.pinyin}</div>
-            )}
           </div>
         ))}
       </div>
+
+      {/* Speech Practice Modal */}
+      {practiceIndex !== null && filtered[practiceIndex] && (
+        <SpeechPractice
+          targetText={filtered[practiceIndex].lao}
+          chineseText={filtered[practiceIndex].chinese}
+          pinyin={filtered[practiceIndex].pinyin}
+          onClose={() => setPracticeIndex(null)}
+        />
+      )}
     </div>
   );
 }

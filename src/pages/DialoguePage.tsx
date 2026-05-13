@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { dialogues } from '../data/dialogues';
+import { useSpeech } from '../hooks/useSpeech';
+import SpeechPractice from '../components/SpeechPractice';
 
 interface Props {
   goBack: () => void;
@@ -8,6 +10,8 @@ interface Props {
 export default function DialoguePage({ goBack }: Props) {
   const [selectedDialogue, setSelectedDialogue] = useState<number | null>(null);
   const [showPinyin, setShowPinyin] = useState(true);
+  const [practiceLine, setPracticeLine] = useState<{lao: string; chinese: string; pinyin: string} | null>(null);
+  const { speakLao, isSpeaking } = useSpeech();
 
   if (selectedDialogue !== null) {
     const dialogue = dialogues[selectedDialogue];
@@ -38,7 +42,7 @@ export default function DialoguePage({ goBack }: Props) {
         <div className="px-4 py-4 space-y-3">
           {dialogue.lines.map((line, i) => (
             <div key={i} className={`flex ${line.speaker === 'A' ? 'justify-start' : 'justify-end'}`}>
-              <div className={`max-w-[80%] rounded-2xl p-4 ${
+              <div className={`max-w-[85%] rounded-2xl p-4 ${
                 line.speaker === 'A' 
                   ? 'bg-white border border-gray-200' 
                   : 'bg-blue-600 text-white'
@@ -57,10 +61,60 @@ export default function DialoguePage({ goBack }: Props) {
                     {line.pinyin}
                   </div>
                 )}
+                
+                {/* 语音按钮 */}
+                <div className="flex gap-2 mt-3">
+                  <button
+                    onClick={() => speakLao(line.lao)}
+                    disabled={isSpeaking}
+                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors disabled:opacity-50 ${
+                      line.speaker === 'A'
+                        ? 'bg-blue-100 text-blue-600 hover:bg-blue-200'
+                        : 'bg-blue-500 text-white hover:bg-blue-400'
+                    }`}
+                  >
+                    🔊 听
+                  </button>
+                  <button
+                    onClick={() => setPracticeLine({lao: line.lao, chinese: line.chinese, pinyin: line.pinyin})}
+                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                      line.speaker === 'A'
+                        ? 'bg-green-100 text-green-600 hover:bg-green-200'
+                        : 'bg-green-500 text-white hover:bg-green-400'
+                    }`}
+                  >
+                    🎤 读
+                  </button>
+                </div>
               </div>
             </div>
           ))}
         </div>
+
+        {/* Practice All Button */}
+        <div className="px-4 pb-6">
+          <button
+            onClick={() => {
+              const fullLao = dialogue.lines.map(l => l.lao).join(' ');
+              const fullChinese = dialogue.lines.map(l => l.chinese).join(' ');
+              setPracticeLine({lao: fullLao, chinese: fullChinese, pinyin: ''});
+            }}
+            className="w-full py-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-2xl font-bold text-lg 
+                       hover:shadow-lg transition-all"
+          >
+            🎤 整段跟读练习
+          </button>
+        </div>
+
+        {/* Speech Practice Modal */}
+        {practiceLine && (
+          <SpeechPractice
+            targetText={practiceLine.lao}
+            chineseText={practiceLine.chinese}
+            pinyin={practiceLine.pinyin}
+            onClose={() => setPracticeLine(null)}
+          />
+        )}
       </div>
     );
   }
@@ -93,7 +147,7 @@ export default function DialoguePage({ goBack }: Props) {
               <div className="flex-1">
                 <h3 className="font-semibold text-gray-800">{d.title}</h3>
                 <p className="text-sm text-gray-500">{d.scenario}</p>
-                <p className="text-xs text-gray-400 mt-1">{d.lines.length} 句对话</p>
+                <p className="text-xs text-gray-400 mt-1">{d.lines.length} 句对话 · 🎤 支持跟读</p>
               </div>
               <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { consonants } from '../data/alphabet';
+import { useSpeech } from '../hooks/useSpeech';
+import SpeechPractice from '../components/SpeechPractice';
 
 type ConsonantClass = 'all' | 'mid' | 'high' | 'low';
 
@@ -22,6 +24,8 @@ interface Props {
 export default function AlphabetPage({ goBack }: Props) {
   const [filter, setFilter] = useState<ConsonantClass>('all');
   const [selected, setSelected] = useState<number | null>(null);
+  const [practiceConsonant, setPracticeConsonant] = useState<typeof consonants[0] | null>(null);
+  const { speakLao, isSpeaking } = useSpeech();
 
   const filtered = filter === 'all' 
     ? consonants 
@@ -112,13 +116,55 @@ export default function AlphabetPage({ goBack }: Props) {
             </div>
           </div>
 
+          {/* Voice Buttons */}
+          <div className="flex gap-3 mt-4">
+            <button
+              onClick={() => speakLao(filtered[selected].char)}
+              disabled={isSpeaking}
+              className="flex-1 py-3 bg-blue-600 text-white rounded-xl font-semibold 
+                         hover:bg-blue-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+            >
+              🔊 听发音
+            </button>
+            <button
+              onClick={() => speakLao(filtered[selected].example)}
+              disabled={isSpeaking}
+              className="flex-1 py-3 bg-purple-600 text-white rounded-xl font-semibold 
+                         hover:bg-purple-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+            >
+              🔊 听例词
+            </button>
+          </div>
+
+          {/* Practice Button */}
+          <button
+            onClick={() => {
+              setPracticeConsonant(filtered[selected]);
+              setSelected(null);
+            }}
+            className="w-full mt-3 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-xl font-semibold 
+                       hover:shadow-lg transition-all flex items-center justify-center gap-2"
+          >
+            🎤 跟读练习
+          </button>
+
           <button
             onClick={() => setSelected(null)}
-            className="w-full mt-4 py-3 bg-gray-100 rounded-xl text-gray-600 font-medium hover:bg-gray-200 transition-colors"
+            className="w-full mt-3 py-3 bg-gray-100 rounded-xl text-gray-600 font-medium hover:bg-gray-200 transition-colors"
           >
             关闭
           </button>
         </div>
+      )}
+
+      {/* Speech Practice Modal */}
+      {practiceConsonant && (
+        <SpeechPractice
+          targetText={practiceConsonant.char}
+          chineseText={practiceConsonant.name}
+          pinyin={practiceConsonant.pinyin}
+          onClose={() => setPracticeConsonant(null)}
+        />
       )}
     </div>
   );
