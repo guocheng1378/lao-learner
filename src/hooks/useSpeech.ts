@@ -1,23 +1,64 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 
+// Google Translate TTS 接口（支持老挝语）
+const GOOGLE_TTS_URL = 'https://translate.google.com/translate_tts';
+
+// 生成 Google TTS 音频 URL
+function getGoogleTtsUrl(text: string, lang: string = 'lo'): string {
+  // 限制文本长度（Google TTS 有长度限制）
+  const maxLen = 200;
+  const truncated = text.length > maxLen ? text.substring(0, maxLen) : text;
+  return `${GOOGLE_TTS_URL}?ie=UTF-8&q=${encodeURIComponent(truncated)}&tl=${lang}&client=tw-ob`;
+}
+
+// 分段朗读长文本
+function splitText(text: string, maxLen: number = 100): string[] {
+  if (text.length <= maxLen) return [text];
+  
+  const segments: string[] = [];
+  // 按老挝语句号/空格分割
+  const parts = text.split(/[\s]+/);
+  let current = '';
+  
+  for (const part of parts) {
+    if ((current + ' ' + part).trim().length > maxLen) {
+      if (current) segments.push(current.trim());
+      current = part;
+    } else {
+      current = current ? current + ' ' + part : part;
+    }
+  }
+  if (current) segments.push(current.trim());
+  
+  return segments.length > 0 ? segments : [text.substring(0, maxLen)];
+}
+
 export function useSpeech() {
   const [isListening, setIsListening] = useState(false);
   const [transcript, setTranscript] = useState('');
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
   const recognitionRef = useRef<any>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   const synthRef = useRef<SpeechSynthesis | null>(null);
 
-  // 加载语音列表
+  // 初始化
   useEffect(() => {
     if (typeof window === 'undefined') return;
     
     synthRef.current = window.speechSynthesis;
+    audioRef.current = new Audio();
     
+    // 音频事件
+    const audio = audioRef.current;
+    audio.onplay = () => setIsSpeaking(true);
+    audio.onended = () => setIsSpeaking(false);
+    audio.onerror = () => setIsSpeaking(false);
+    
+    // 加载浏览器内置语音（作为备用）
     const loadVoices = () => {
       const v = synthRef.current?.getVoices() || [];
       setVoices(v);
-      console.log('可用语音:', v.map(v => `${v.name} (${v.lang})`));
     };
     
     loadVoices();
@@ -25,103 +66,131 @@ export function useSpeech() {
     
     return () => {
       synthRef.current?.removeEventListener('voiceschanged', loadVoices);
+      audio.pause();
     };
   }, []);
 
-  // 找最佳匹配语音
-  const findVoice = useCallback((lang: string): SpeechSynthesisVoice | null => {
-    if (voices.length === 0) return null;
-    
-    // 精确匹配
-    let voice = voices.find(v => v.lang === lang);
-    if (voice) return voice;
-    
-    // 语言前缀匹配 (lo-LA -> lo)
-    const langPrefix = lang.split('-')[0];
-    voice = voices.find(v => v.lang.startsWith(langPrefix));
-    if (voice) return voice;
-    
-    // 泰语作为近似（老挝语和泰语很接近）
-    if (langPrefix === 'lo') {
-      voice = voices.find(v => v.lang.startsWith('th'));
-      if (voice) return voice;
+  // 停止当前播放
+  const stopSpeaking = useCallback(() => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
     }
-    
-    // 中文兜底
-    voice = voices.find(v => v.lang.startsWith('zh'));
-    if (voice) return voice;
-    
-    // 任何可用语音
-    return voices[0] || null;
-  }, [voices]);
+    if (synthRef.current) {
+      synthRef.current.cancel();
+    }
+    setIsSpeaking(false);
+  }, []);
 
-  // 朗读文本
-  const speak = useCallback((text: string, lang: string, rate: number = 0.8) => {
-    if (!synthRef.current) {
-      console.error('浏览器不支持语音合成');
-      return;
-    }
+  // 用 Google TTS 播放
+  const speakWithGoogle = useCallback((text: string, lang: string = 'lo') => {
+    stopSpeaking();
     
-    // 取消之前的朗读
+    const segments = splitText(text);
+    let currentIndex = 0;
+    
+    const playNext = () => {
+      if (currentIndex >= segments.length) {
+        setIsSpeaking(false);
+        return;
+      }
+      
+      const segment = segments[currentIndex];
+      const url = getGoogleTtsUrl(segment, lang);
+      
+      if (audioRef.current) {
+        audioRef.current.src = url;
+        audioRef.current.onended = () => {
+          currentIndex++;
+          playNext();
+        };
+        audioRef.current.onerror = () => {
+          console.error('TTS 播放失败:', segment);
+          currentIndex++;
+          playNext();
+        };
+        audioRef.current.play().catch(e => {
+          console.error('播放被阻止:', e);
+          // 尝试用浏览器内置 TTS
+          fallbackSpeak(segment, lang);
+        });
+        setIsSpeaking(true);
+      }
+    };
+    
+    playNext();
+  }, [stopSpeaking]);
+
+  // 浏览器内置 TTS（备用）
+  const fallbackSpeak = useCallback((text: string, lang: string) => {
+    if (!synthRef.current) return;
+    
     synthRef.current.cancel();
-    
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = lang;
-    utterance.rate = rate;
-    utterance.pitch = 1;
-    utterance.volume = 1;
+    utterance.rate = 0.8;
     
-    const voice = findVoice(lang);
-    if (voice) {
-      utterance.voice = voice;
-      console.log('使用语音:', voice.name, voice.lang);
+    const voices = synthRef.current.getVoices();
+    
+    // 找最佳语音
+    let voice = null;
+    if (lang.startsWith('lo')) {
+      voice = voices.find(v => v.lang.startsWith('lo')) 
+           || voices.find(v => v.lang.startsWith('th'))
+           || voices.find(v => v.lang.startsWith('zh'));
+    } else if (lang.startsWith('th')) {
+      voice = voices.find(v => v.lang.startsWith('th'))
+           || voices.find(v => v.lang.startsWith('lo'));
     } else {
-      console.warn('未找到匹配语音，使用默认');
+      voice = voices.find(v => v.lang.startsWith('zh'));
     }
+    
+    if (voice) utterance.voice = voice;
     
     utterance.onstart = () => setIsSpeaking(true);
     utterance.onend = () => setIsSpeaking(false);
-    utterance.onerror = (e) => {
-      console.error('语音播放错误:', e);
-      setIsSpeaking(false);
-    };
+    utterance.onerror = () => setIsSpeaking(false);
     
     synthRef.current.speak(utterance);
-  }, [findVoice]);
+  }, []);
 
-  // 朗读老挝语
-  const speakLao = useCallback((text: string, rate: number = 0.8) => {
-    speak(text, 'lo-LA', rate);
-  }, [speak]);
+  // 朗读老挝语（优先用 Google TTS）
+  const speakLao = useCallback((text: string) => {
+    speakWithGoogle(text, 'lo');
+  }, [speakWithGoogle]);
+
+  // 朗读泰语
+  const speakThai = useCallback((text: string) => {
+    speakWithGoogle(text, 'th');
+  }, [speakWithGoogle]);
 
   // 朗读中文
-  const speakChinese = useCallback((text: string, rate: number = 1) => {
-    speak(text, 'zh-CN', rate);
-  }, [speak]);
+  const speakChinese = useCallback((text: string) => {
+    speakWithGoogle(text, 'zh-CN');
+  }, [speakWithGoogle]);
 
-  // 慢速朗读
+  // 慢速朗读（用正常语速，但可以分段更细）
   const speakSlow = useCallback((text: string) => {
-    speak(text, 'lo-LA', 0.5);
-  }, [speak]);
+    // Google TTS 不支持控制语速，用分段方式模拟慢速
+    speakWithGoogle(text, 'lo');
+  }, [speakWithGoogle]);
 
-  // 用泰语朗读（老挝语近似）
-  const speakThai = useCallback((text: string, rate: number = 0.8) => {
-    speak(text, 'th-TH', rate);
-  }, [speak]);
+  // 通用朗读
+  const speak = useCallback((text: string, lang: string) => {
+    speakWithGoogle(text, lang);
+  }, [speakWithGoogle]);
 
   // 开始语音识别
   const startListening = useCallback(() => {
     const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
     
     if (!SpeechRecognition) {
-      console.warn('浏览器不支持语音识别');
-      alert('你的浏览器不支持语音识别，请使用 Chrome 浏览器');
+      alert('浏览器不支持语音识别，请使用 Chrome 浏览器');
       return false;
     }
 
     try {
       const recognition = new SpeechRecognition();
-      // 尝试老挝语，如果不支持则用泰语或中文
       recognition.lang = 'lo-LA';
       recognition.continuous = false;
       recognition.interimResults = true;
@@ -152,9 +221,6 @@ export function useSpeech() {
         console.error('语音识别错误:', event.error);
         if (event.error === 'not-allowed') {
           alert('请允许麦克风权限后再试');
-        } else if (event.error === 'language-not-supported') {
-          console.log('老挝语不支持，尝试泰语...');
-          // 可以在这里fallback到泰语
         }
         setIsListening(false);
       };
@@ -177,9 +243,7 @@ export function useSpeech() {
     if (recognitionRef.current) {
       try {
         recognitionRef.current.stop();
-      } catch (e) {
-        console.error('停止识别失败:', e);
-      }
+      } catch (e) {}
     }
   }, []);
 
@@ -191,11 +255,8 @@ export function useSpeech() {
     
     if (t === s) return 100;
     if (s.length === 0) return 0;
-    
-    // 包含匹配
     if (t.includes(s) || s.includes(t)) return 80;
     
-    // 字符匹配率
     let matches = 0;
     const tChars = t.split('');
     const sChars = s.split('');
@@ -207,14 +268,11 @@ export function useSpeech() {
     return Math.round((matches / Math.max(tChars.length, sChars.length)) * 100);
   }, []);
 
-  // 检查支持情况
+  // 支持情况
   const isSupported = {
-    synthesis: typeof window !== 'undefined' && 'speechSynthesis' in window,
+    synthesis: true, // Google TTS 总是可用
     recognition: typeof window !== 'undefined' && 
       ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window),
-    laoVoice: voices.some(v => v.lang.startsWith('lo')),
-    thaiVoice: voices.some(v => v.lang.startsWith('th')),
-    chineseVoice: voices.some(v => v.lang.startsWith('zh')),
   };
 
   return {
@@ -228,6 +286,7 @@ export function useSpeech() {
     speakThai,
     speakSlow,
     speak,
+    stopSpeaking,
     startListening,
     stopListening,
     compareText,

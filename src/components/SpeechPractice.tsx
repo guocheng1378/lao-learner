@@ -10,8 +10,8 @@ interface Props {
 
 export default function SpeechPractice({ targetText, chineseText, pinyin, onClose }: Props) {
   const { 
-    isListening, transcript, isSpeaking, isSupported,
-    speakLao, speakSlow, speakThai, speakChinese, startListening, stopListening, compareText 
+    isListening, transcript, isSpeaking,
+    speakLao, speakSlow, speakChinese, startListening, stopListening, compareText, stopSpeaking
   } = useSpeech();
   
   const [score, setScore] = useState<number | null>(null);
@@ -65,15 +65,6 @@ export default function SpeechPractice({ targetText, chineseText, pinyin, onClos
         </div>
 
         <div className="px-6 py-4 space-y-4">
-          {/* Voice Support Status */}
-          {!isSupported.synthesis && (
-            <div className="bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-xl p-3">
-              <p className="text-sm text-red-700 dark:text-red-300">
-                ⚠️ 你的浏览器不支持语音播放，请使用 <b>Chrome</b> 或 <b>Edge</b> 浏览器
-              </p>
-            </div>
-          )}
-
           {/* Target Text */}
           <div className="bg-blue-50 dark:bg-blue-900/30 rounded-2xl p-5 text-center">
             <div className="text-xs text-blue-400 mb-2">跟读目标</div>
@@ -85,38 +76,30 @@ export default function SpeechPractice({ targetText, chineseText, pinyin, onClos
           {/* Listen Buttons */}
           <div className="space-y-2">
             <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">🔊 点击听发音：</div>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-3 gap-2">
               <button
                 onClick={() => speakLao(targetText)}
                 disabled={isSpeaking}
                 className="py-3 bg-blue-600 text-white rounded-xl font-semibold 
-                           hover:bg-blue-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+                           hover:bg-blue-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-1"
               >
-                {isSpeaking ? '🔊 播放中...' : '🇱🇦 老挝语'}
+                {isSpeaking ? '🔊' : '🇱🇦'} 老挝语
               </button>
               <button
                 onClick={() => speakSlow(targetText)}
                 disabled={isSpeaking}
                 className="py-3 bg-purple-600 text-white rounded-xl font-semibold 
-                           hover:bg-purple-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+                           hover:bg-purple-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-1"
               >
-                {isSpeaking ? '🔊 播放中...' : '🐢 慢速'}
-              </button>
-              <button
-                onClick={() => speakThai(targetText)}
-                disabled={isSpeaking}
-                className="py-3 bg-green-600 text-white rounded-xl font-semibold 
-                           hover:bg-green-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
-              >
-                {isSpeaking ? '🔊 播放中...' : '🇹🇭 泰语近似'}
+                {isSpeaking ? '🔊' : '🐢'} 慢速
               </button>
               <button
                 onClick={() => speakChinese(chineseText)}
                 disabled={isSpeaking}
                 className="py-3 bg-amber-600 text-white rounded-xl font-semibold 
-                           hover:bg-amber-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+                           hover:bg-amber-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-1"
               >
-                {isSpeaking ? '🔊 播放中...' : '🇨🇳 中文'}
+                {isSpeaking ? '🔊' : '🇨🇳'} 中文
               </button>
             </div>
           </div>
@@ -133,16 +116,11 @@ export default function SpeechPractice({ targetText, chineseText, pinyin, onClos
             {isListening ? '⏹️ 停止录音' : '🎙️ 开始跟读'}
           </button>
 
-          {/* Browser Support Info */}
-          <div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-3">
-            <div className="text-xs text-gray-500 dark:text-gray-400">
-              <span className="font-semibold">💡 语音说明：</span>
-              <ul className="mt-1 space-y-1 list-disc list-inside">
-                <li>老挝语发音可能由泰语或中文语音引擎模拟</li>
-                <li>语音识别需要授权麦克风权限</li>
-                <li>建议使用 <b>Chrome</b> 浏览器获得最佳效果</li>
-              </ul>
-            </div>
+          {/* Info */}
+          <div className="bg-green-50 dark:bg-green-900/30 rounded-xl p-3">
+            <p className="text-xs text-green-700 dark:text-green-300">
+              ✅ 已接入 Google TTS 语音引擎，原生支持老挝语发音
+            </p>
           </div>
 
           {/* Transcript */}
@@ -186,7 +164,10 @@ export default function SpeechPractice({ targetText, chineseText, pinyin, onClos
 
           {/* Close */}
           <button
-            onClick={onClose}
+            onClick={() => {
+              stopSpeaking();
+              onClose();
+            }}
             className="w-full py-3 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-xl font-semibold hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
           >
             关闭
