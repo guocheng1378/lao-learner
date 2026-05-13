@@ -1,20 +1,6 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: 'Noto Sans Lao';
-  src: url('https://fonts.gstatic.com/s/notosanslao/v30/AlZv_yJqYxlQPlx2yY4R1MNsMuhB.woff2') format('woff2');
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Noto Sans Lao';
-  src: url('https://fonts.gstatic.com/s/notosanslao/v30/AlZv_yJqYxlQPlx2yY4R1MNsMuhB.woff2') format('woff2');
-  font-weight: 700;
-  font-display: swap;
-}
-
-:root {
+@theme {
   --color-primary: #2563eb;
   --color-primary-light: #3b82f6;
   --color-accent: #f59e0b;
@@ -39,6 +25,41 @@ body {
   min-height: 100vh;
 }
 
+/* Dark mode */
+.dark body,
+.dark {
+  background: #111827;
+  color: #f3f4f6;
+}
+
 .lao-text {
   font-family: 'Noto Sans Lao', 'Phetsarath OT', 'Saysettha OT', sans-serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 2px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+
+/* Animations */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 2s infinite;
 }
