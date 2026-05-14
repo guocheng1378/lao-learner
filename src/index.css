@@ -63,3 +63,12 @@ body {
 .animate-pulse-slow {
   animation: pulse-slow 2s infinite;
 }
+
+/* Hide scrollbar */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
