@@ -119,7 +119,7 @@ export default function AlphabetPage({ goBack }: Props) {
           {/* Voice Buttons */}
           <div className="flex gap-3 mt-4">
             <button
-              onClick={() => speakLao(filtered[selected].char)}
+              onClick={() => speakLao(filtered[selected].name, 1.3)}
               disabled={isSpeaking}
               className="flex-1 py-3 bg-blue-600 text-white rounded-xl font-semibold 
                          hover:bg-blue-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
@@ -127,7 +127,7 @@ export default function AlphabetPage({ goBack }: Props) {
               🔊 听发音
             </button>
             <button
-              onClick={() => speakLao(filtered[selected].example)}
+              onClick={() => speakLao(filtered[selected].example, 1.3)}
               disabled={isSpeaking}
               className="flex-1 py-3 bg-purple-600 text-white rounded-xl font-semibold 
                          hover:bg-purple-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"

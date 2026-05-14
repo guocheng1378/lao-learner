@@ -1346,5 +1346,149 @@
   "ສີອ່ອນ": {
     "normal": "/audio/ສ_ອ_ອນ_a0e633d8c332.mp3",
     "slow": "/audio/ສ_ອ_ອນ_e92190b5d65f.mp3"
+  },
+  "ກ ໄກ່": {
+    "normal": "/audio/ກ_ໄກ_cfcb84041a50.mp3",
+    "slow": "/audio/ກ_ໄກ_3d753d80c140.mp3"
+  },
+  "ຈ ຈານ": {
+    "normal": "/audio/ຈ_ຈານ_abd1ab3262dc.mp3",
+    "slow": "/audio/ຈ_ຈານ_086d84409f98.mp3"
+  },
+  "ງ ງົວ": {
+    "normal": "/audio/ງ_ງ_ວ_3a37b09f6455.mp3",
+    "slow": "/audio/ງ_ງ_ວ_b3b94a6a69ae.mp3"
+  },
+  "ຍ ຍາກ": {
+    "normal": "/audio/ຍ_ຍາກ_a067a008387d.mp3",
+    "slow": "/audio/ຍ_ຍາກ_418471a93c59.mp3"
+  },
+  "ຟ ຟາ": {
+    "normal": "/audio/ຟ_ຟາ_e96fff7a0d2e.mp3",
+    "slow": "/audio/ຟ_ຟາ_1abf34ee5412.mp3"
+  },
+  "ມ ມ້າ": {
+    "normal": "/audio/ມ_ມ_າ_026c89d25ccf.mp3",
+    "slow": "/audio/ມ_ມ_າ_936119bd95dc.mp3"
+  },
+  "ຣ ຣົດ": {
+    "normal": "/audio/ຣ_ຣ_ດ_be8f38079f96.mp3",
+    "slow": "/audio/ຣ_ຣ_ດ_b7ca190e1554.mp3"
+  },
+  "ງາ": {
+    "normal": "/audio/ງາ_cec423a14b2c.mp3",
+    "slow": "/audio/ງາ_73a180d1fc12.mp3"
+  },
+  "ຣາ": {
+    "normal": "/audio/ຣາ_3032a6eef93d.mp3",
+    "slow": "/audio/ຣາ_e614cce9f7b1.mp3"
+  },
+  "ກ": {
+    "normal": "/audio/ກ_2b79dfe03049.mp3",
+    "slow": "/audio/ກ_aa8043380335.mp3"
+  },
+  "ຂ": {
+    "normal": "/audio/ຂ_0f52f5b66c85.mp3",
+    "slow": "/audio/ຂ_321e63dcf1e4.mp3"
+  },
+  "ຄ": {
+    "normal": "/audio/ຄ_c932d57b3a27.mp3",
+    "slow": "/audio/ຄ_7eae88653795.mp3"
+  },
+  "ງ": {
+    "normal": "/audio/ງ_89310208cb81.mp3",
+    "slow": "/audio/ງ_24afc7f5f944.mp3"
+  },
+  "ຈ": {
+    "normal": "/audio/ຈ_da54ed0b1307.mp3",
+    "slow": "/audio/ຈ_657d204ce6d4.mp3"
+  },
+  "ສ": {
+    "normal": "/audio/ສ_3c284071e4fd.mp3",
+    "slow": "/audio/ສ_59ba34be0e37.mp3"
+  },
+  "ຊ": {
+    "normal": "/audio/ຊ_1e54604e6633.mp3",
+    "slow": "/audio/ຊ_a7453ab0fdcc.mp3"
+  },
+  "ຍ": {
+    "normal": "/audio/ຍ_86277aad1f48.mp3",
+    "slow": "/audio/ຍ_f9dc9e2db464.mp3"
+  },
+  "ດ": {
+    "normal": "/audio/ດ_e1f53d647c37.mp3",
+    "slow": "/audio/ດ_6c46e1dc031b.mp3"
+  },
+  "ຕ": {
+    "normal": "/audio/ຕ_90c2526c4060.mp3",
+    "slow": "/audio/ຕ_8b1582db7e02.mp3"
+  },
+  "ຖ": {
+    "normal": "/audio/ຖ_ce1a88bce595.mp3",
+    "slow": "/audio/ຖ_0e7ce242ee4b.mp3"
+  },
+  "ທ": {
+    "normal": "/audio/ທ_38564e6a2be2.mp3",
+    "slow": "/audio/ທ_32bbb0b8ccbd.mp3"
+  },
+  "ນ": {
+    "normal": "/audio/ນ_1ef8d0fac672.mp3",
+    "slow": "/audio/ນ_2cdc4708300b.mp3"
+  },
+  "ບ": {
+    "normal": "/audio/ບ_d6cf4bb6b4fb.mp3",
+    "slow": "/audio/ບ_99bafd903c0a.mp3"
+  },
+  "ປ": {
+    "normal": "/audio/ປ_0cf5f29e51d5.mp3",
+    "slow": "/audio/ປ_c87078aae504.mp3"
+  },
+  "ຜ": {
+    "normal": "/audio/ຜ_cee8e20fdd08.mp3",
+    "slow": "/audio/ຜ_a8c93ed53c9e.mp3"
+  },
+  "ຝ": {
+    "normal": "/audio/ຝ_032dceeb97f5.mp3",
+    "slow": "/audio/ຝ_2f94ab524f49.mp3"
+  },
+  "ພ": {
+    "normal": "/audio/ພ_7efe99e6837e.mp3",
+    "slow": "/audio/ພ_ad3db391b4f3.mp3"
+  },
+  "ຟ": {
+    "normal": "/audio/ຟ_fabcb16e3ba7.mp3",
+    "slow": "/audio/ຟ_35f168c23caf.mp3"
+  },
+  "ມ": {
+    "normal": "/audio/ມ_c9b2cc66ba9c.mp3",
+    "slow": "/audio/ມ_a2cc6644d1b5.mp3"
+  },
+  "ຢ": {
+    "normal": "/audio/ຢ_1ba417e050d3.mp3",
+    "slow": "/audio/ຢ_dba9c2a78e2d.mp3"
+  },
+  "ຣ": {
+    "normal": "/audio/ຣ_3cc039f077ed.mp3",
+    "slow": "/audio/ຣ_86679f051d54.mp3"
+  },
+  "ລ": {
+    "normal": "/audio/ລ_3bf78b2a6273.mp3",
+    "slow": "/audio/ລ_effa70125212.mp3"
+  },
+  "ວ": {
+    "normal": "/audio/ວ_300f72e62138.mp3",
+    "slow": "/audio/ວ_2d09eea3ad37.mp3"
+  },
+  "ຫ": {
+    "normal": "/audio/ຫ_a53972433ba9.mp3",
+    "slow": "/audio/ຫ_96a107415c9a.mp3"
+  },
+  "ອ": {
+    "normal": "/audio/ອ_8a7c4d888a38.mp3",
+    "slow": "/audio/ອ_6c1df4032e2b.mp3"
+  },
+  "ຮ": {
+    "normal": "/audio/ຮ_91e70345d234.mp3",
+    "slow": "/audio/ຮ_ecbea3a02d16.mp3"
   }
 }
