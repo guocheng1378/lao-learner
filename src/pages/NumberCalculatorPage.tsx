@@ -23,41 +23,41 @@ function numberToLao(num: number): string {
   if (len === 2) {
     const tens = str[0];
     const ones = str[1];
-    if (tens === '1') return ones === '0' ? 'ສິບ' : 'ສິບ' + laoDigits[ones];
-    if (tens === '2') return ones === '0' ? 'ຊາວ' : 'ຊາວ' + laoDigits[ones];
-    return laoDigits[tens] + 'ສິບ' + (ones === '0' ? '' : laoDigits[ones]);
+    if (tens === '1') return ones === '0' ? 'ສິບ' : 'ສິບ ' + laoDigits[ones];
+    if (tens === '2') return ones === '0' ? 'ຊາວ' : 'ຊາວ ' + laoDigits[ones];
+    return laoDigits[tens] + ' ສິບ' + (ones === '0' ? '' : ' ' + laoDigits[ones]);
   }
 
   if (len === 3) {
     const hundreds = str[0];
     const rest = parseInt(str.substring(1));
-    return laoDigits[hundreds] + 'ຮ້ອຍ' + (rest === 0 ? '' : numberToLao(rest));
+    return laoDigits[hundreds] + ' ຮ້ອຍ' + (rest === 0 ? '' : ' ' + numberToLao(rest));
   }
 
   if (len === 4) {
     const thousands = str[0];
     const rest = parseInt(str.substring(1));
-    return laoDigits[thousands] + 'ພັນ' + (rest === 0 ? '' : numberToLao(rest));
+    return laoDigits[thousands] + ' ພັນ' + (rest === 0 ? '' : ' ' + numberToLao(rest));
   }
 
   if (len === 5) {
     const tenThousands = str[0];
     const rest = parseInt(str.substring(1));
-    if (tenThousands === '1') return 'ສິບພັນ' + (rest === 0 ? '' : numberToLao(rest));
-    if (tenThousands === '2') return 'ຊາວພັນ' + (rest === 0 ? '' : numberToLao(rest));
-    return laoDigits[tenThousands] + 'ສິບພັນ' + (rest === 0 ? '' : numberToLao(rest));
+    if (tenThousands === '1') return 'ສິບ ພັນ' + (rest === 0 ? '' : ' ' + numberToLao(rest));
+    if (tenThousands === '2') return 'ຊາວ ພັນ' + (rest === 0 ? '' : ' ' + numberToLao(rest));
+    return laoDigits[tenThousands] + ' ສິບ ພັນ' + (rest === 0 ? '' : ' ' + numberToLao(rest));
   }
 
   if (len === 6) {
     const hundredThousands = str[0];
     const rest = parseInt(str.substring(1));
-    return laoDigits[hundredThousands] + 'ແສນ' + (rest === 0 ? '' : numberToLao(rest));
+    return laoDigits[hundredThousands] + ' ແສນ' + (rest === 0 ? '' : ' ' + numberToLao(rest));
   }
 
   if (len >= 7) {
     const millions = parseInt(str.substring(0, len - 6));
     const rest = parseInt(str.substring(len - 6));
-    return numberToLao(millions) + 'ລ້ານ' + (rest === 0 ? '' : numberToLao(rest));
+    return numberToLao(millions) + ' ລ້ານ' + (rest === 0 ? '' : ' ' + numberToLao(rest));
   }
 
   return str;
