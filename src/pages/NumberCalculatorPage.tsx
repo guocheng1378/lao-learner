@@ -11,6 +11,15 @@ const laoDigits: Record<string, string> = {
   '5': 'ຫ້າ', '6': 'ຫົກ', '7': 'ເຈັດ', '8': 'ແປດ', '9': 'ເກົ້າ',
 };
 
+// 运算符老挝语
+const laoOperators: Record<string, string> = {
+  '+': 'ບວກ',
+  '-': 'ລົບ',
+  '×': 'ຄູນ',
+  '÷': 'ແບ่ง',
+  '=': 'ເທົ່າກັບ',
+};
+
 function numberToLao(num: number): string {
   if (num === 0) return laoDigits['0'];
   if (num < 0) return 'ລົບ ' + numberToLao(-num);
@@ -66,11 +75,8 @@ function numberToLao(num: number): string {
 // 计算表达式求值（安全版，支持 + - × ÷）
 function safeEval(expr: string): number | null {
   try {
-    // 替换显示符号为 JS 运算符
     const sanitized = expr.replace(/×/g, '*').replace(/÷/g, '/');
-    // 只允许数字、运算符、括号、小数点、空格
     if (!/^[\d+\-*/().%\s]+$/.test(sanitized)) return null;
-    // eslint-disable-next-line no-eval
     const result = Function('"use strict";return (' + sanitized + ')')();
     if (typeof result !== 'number' || !isFinite(result)) return null;
     return result;
@@ -81,7 +87,6 @@ function safeEval(expr: string): number | null {
 
 // 汇率（估算）
 const RATES = { kip: 1, cny: 2500, usd: 21000, thb: 650 };
-
 type Currency = 'kip' | 'cny' | 'usd' | 'thb';
 const CURRENCY_LABELS: Record<Currency, string> = {
   kip: '₭ 基普', cny: '¥ 人民币', usd: '$ 美元', thb: '฿ 泰铢',
@@ -89,6 +94,28 @@ const CURRENCY_LABELS: Record<Currency, string> = {
 const CURRENCY_FLAGS: Record<Currency, string> = {
   kip: '🇱🇦', cny: '🇨🇳', usd: '🇺🇸', thb: '🇹🇭',
 };
+
+// 常用量词/单位
+const UNITS = [
+  { cn: '个', lao: 'ອັນ', pinyin: 'an', desc: '通用量词' },
+  { cn: '只', lao: 'ໂຕ', pinyin: 'tou', desc: '动物/鞋' },
+  { cn: '头', lao: 'ໂຕ', pinyin: 'tou', desc: '大动物' },
+  { cn: '条', lao: 'ເສັ້ນ', pinyin: 'sen', desc: '长条物' },
+  { cn: '件', lao: 'ຊິ້ນ', pinyin: 'sin', desc: '衣物/物品' },
+  { cn: '框', lao: 'ກ່ອງ', pinyin: 'kong', desc: '箱子/框' },
+  { cn: '袋', lao: 'ຖົງ', pinyin: 'thong', desc: '袋子' },
+  { cn: '瓶', lao: 'ແກ້ວ', pinyin: 'kaew', desc: '瓶装' },
+  { cn: '包', lao: 'ແພັກ', pinyin: 'paek', desc: '包裹' },
+  { cn: '公斤', lao: 'ກິໂລ', pinyin: 'ki lo', desc: '重量' },
+  { cn: '克', lao: 'ກຣາມ', pinyin: 'gram', desc: '重量' },
+  { cn: '升', lao: 'ລິດ', pinyin: 'lit', desc: '容量' },
+  { cn: '米', lao: 'ແມັດ', pinyin: 'mat', desc: '长度' },
+  { cn: '块', lao: 'ບ່ອນ', pinyin: 'bon', desc: '地方/块' },
+  { cn: '棵', lao: 'ຕົ້ນ', pinyin: 'ton', desc: '树木' },
+  { cn: '把', lao: 'ດັມ', pinyin: 'dam', desc: '把/束' },
+  { cn: '双', lao: 'ຄູ່', pinyin: 'khou', desc: '成对' },
+  { cn: '套', lao: 'ຊຸດ', pinyin: 'soud', desc: '套装' },
+];
 
 export default function NumberCalculatorPage({ goBack }: Props) {
   const [expression, setExpression] = useState('');
@@ -104,7 +131,6 @@ export default function NumberCalculatorPage({ goBack }: Props) {
       return num.toLocaleString('en-US');
     }
     const str = num.toString();
-    // 大数或小数直接显示
     if (str.includes('.')) {
       const [intPart, decPart] = str.split('.');
       return parseInt(intPart).toLocaleString('en-US') + '.' + decPart;
@@ -114,11 +140,8 @@ export default function NumberCalculatorPage({ goBack }: Props) {
 
   // 显示文本
   const displayText = useMemo(() => {
-    if (result !== null) {
-      return formatNumber(result);
-    }
+    if (result !== null) return formatNumber(result);
     if (!expression) return '0';
-    // 格式化表达式中的数字
     return expression.replace(/(\d+)(\.\d+)?/g, (match) => {
       const num = parseFloat(match);
       if (isNaN(num)) return match;
@@ -126,7 +149,7 @@ export default function NumberCalculatorPage({ goBack }: Props) {
     });
   }, [expression, result, formatNumber]);
 
-  // 当前有效数字（用于老挝语显示）
+  // 当前有效数字
   const currentNumber = useMemo(() => {
     if (result !== null) return result;
     const num = parseFloat(expression);
@@ -141,7 +164,7 @@ export default function NumberCalculatorPage({ goBack }: Props) {
     return numberToLao(intNum);
   }, [currentNumber]);
 
-  // 自动播报（防抖 800ms）- 只播报数字，不播报货币
+  // 自动播报（防抖 800ms）- 只播报数字
   const autoPlayTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   useEffect(() => {
     if (autoPlayTimer.current) clearTimeout(autoPlayTimer.current);
@@ -170,13 +193,18 @@ export default function NumberCalculatorPage({ goBack }: Props) {
 
   // 按钮处理
   const handleButton = useCallback((key: string) => {
+    // 播放运算符语音
+    if (laoOperators[key]) {
+      speakLao(laoOperators[key], 1.3);
+    }
+
     if (key === 'AC') {
       setExpression('');
       setResult(null);
       return;
     }
 
-    if (key === '⌫' || key === 'del') {
+    if (key === '⌫') {
       if (result !== null) {
         setResult(null);
         setExpression('');
@@ -225,11 +253,9 @@ export default function NumberCalculatorPage({ goBack }: Props) {
     // 运算符
     if (['+', '-', '×', '÷'].includes(key)) {
       if (result !== null) {
-        // 把结果作为新表达式的开始
         setExpression(result.toString() + ' ' + key + ' ');
         setResult(null);
       } else if (expression) {
-        // 检查是否已经有末尾运算符，替换它
         const trimmed = expression.trimEnd();
         if (/[+\-×÷]\s*$/.test(trimmed)) {
           setExpression(trimmed.replace(/[+\-×÷]\s*$/, '') + ' ' + key + ' ');
@@ -242,13 +268,12 @@ export default function NumberCalculatorPage({ goBack }: Props) {
 
     // 数字和小数点
     if (result !== null) {
-      // 已有结果，开始新表达式
       setResult(null);
       setExpression(key);
     } else {
       setExpression(prev => prev + key);
     }
-  }, [expression, result]);
+  }, [expression, result, speakLao]);
 
   // 键盘支持
   useEffect(() => {
@@ -315,7 +340,7 @@ export default function NumberCalculatorPage({ goBack }: Props) {
 
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex flex-col">
-      {/* Header - Xiaomi style minimal */}
+      {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
         <button onClick={goBack} className="p-2 -ml-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors">
           <svg className="w-5 h-5 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -323,18 +348,16 @@ export default function NumberCalculatorPage({ goBack }: Props) {
           </svg>
         </button>
         <h1 className="text-base font-medium text-gray-600 dark:text-gray-300">计算器</h1>
-        <div className="w-9" /> {/* spacer */}
+        <div className="w-9" />
       </div>
 
-      {/* Calculator Body - Xiaomi style */}
+      {/* Calculator Body */}
       <div className="flex-1 flex flex-col bg-white dark:bg-gray-800 mx-2 mt-1 rounded-3xl shadow-lg overflow-hidden">
         {/* Display Area */}
         <div className="flex-1 flex flex-col justify-end px-6 pb-4 pt-8 min-h-[200px]">
-          {/* Expression */}
           <div className="text-right text-gray-400 dark:text-gray-500 text-base h-7 overflow-hidden font-light tracking-wide">
             {expression || '\u00A0'}
           </div>
-          {/* Result */}
           <div className={`text-right font-light tracking-tight transition-all duration-200 ${
             result !== null
               ? 'text-5xl text-gray-900 dark:text-white'
@@ -374,7 +397,6 @@ export default function NumberCalculatorPage({ goBack }: Props) {
               </div>
             </button>
 
-            {/* Expanded Lao Panel */}
             {showLaoPanel && (
               <div className="mt-2 p-4 bg-white dark:bg-gray-700 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-600">
                 <div className="text-center">
@@ -402,7 +424,7 @@ export default function NumberCalculatorPage({ goBack }: Props) {
           </div>
         )}
 
-        {/* Number Pad - Xiaomi style grid */}
+        {/* Number Pad */}
         <div className="px-3 pb-3 space-y-2">
           {rows.map((row, ri) => (
             <div key={ri} className="flex gap-2">
@@ -417,7 +439,7 @@ export default function NumberCalculatorPage({ goBack }: Props) {
                     ${getButtonStyle(btn.type)}
                   `}
                 >
-                  {btn.label === '⌫' ? '⌫' : btn.label}
+                  {btn.label}
                 </button>
               ))}
             </div>
@@ -454,7 +476,28 @@ export default function NumberCalculatorPage({ goBack }: Props) {
         </div>
       </div>
 
-      {/* Currency Converter Toggle */}
+      {/* Unit / Measure Words */}
+      <div className="px-4 pb-2">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm">
+          <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2">📦 常用量词（做生意必备）</h3>
+          <div className="grid grid-cols-3 gap-1.5">
+            {UNITS.map(u => (
+              <button
+                key={u.cn}
+                onClick={() => speakLao(u.lao, 1.3)}
+                disabled={isSpeaking}
+                className="flex flex-col items-center py-2 bg-gray-50 dark:bg-gray-700 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors active:scale-95"
+              >
+                <span className="text-sm font-bold text-gray-800 dark:text-white">{u.cn}</span>
+                <span className="lao-text text-xs text-blue-600 dark:text-blue-400 font-medium">{u.lao}</span>
+                <span className="text-[9px] text-gray-400 mt-0.5">{u.desc}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Currency Converter */}
       <div className="px-4 pb-2">
         <button
           onClick={() => setShowConverter(!showConverter)}
@@ -466,7 +509,6 @@ export default function NumberCalculatorPage({ goBack }: Props) {
 
         {showConverter && (
           <div className="mt-2 p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-sm">
-            {/* From Currency Selector */}
             <div className="flex gap-1.5 mb-3">
               {(Object.keys(RATES) as Currency[]).map(c => (
                 <button
@@ -483,7 +525,6 @@ export default function NumberCalculatorPage({ goBack }: Props) {
               ))}
             </div>
 
-            {/* Conversions */}
             {conversions && (
               <div className="grid grid-cols-2 gap-2">
                 {(['kip', 'cny', 'usd', 'thb'] as Currency[]).map(c => (
@@ -553,7 +594,7 @@ export default function NumberCalculatorPage({ goBack }: Props) {
         </div>
       </div>
 
-      {/* Single Digit Quick Reference */}
+      {/* Single Digit Reference */}
       <div className="px-4 pb-6">
         <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm">
           <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2">🔢 数字发音参考</h3>

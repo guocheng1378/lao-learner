@@ -735,96 +735,88 @@
     "normal": "/audio/ໜ__ງ_33fc91975dd9.mp3",
     "slow": "/audio/ໜ__ງ_fc8217cafd68.mp3"
   },
-  "ສິບພັນ": {
-    "normal": "/audio/lao_b2d365c571cb.mp3",
-    "slow": "/audio/lao_02497cddfba4.mp3"
+  "ບວກ": {
+    "normal": "/audio/ບວກ_a980b92a1159.mp3",
+    "slow": "/audio/ບວກ_107d2e217532.mp3"
   },
-  "ສູນ": {
-    "normal": "/audio/lao_6c4b937eacac.mp3",
-    "slow": "/audio/lao_ccafdefb2cf3.mp3"
+  "ຄູນ": {
+    "normal": "/audio/ຄ_ນ_cf20a1b5d94b.mp3",
+    "slow": "/audio/ຄ_ນ_09aa6d7280ad.mp3"
   },
-  "ຊາວ": {
-    "normal": "/audio/lao_a529f9737fc2.mp3",
-    "slow": "/audio/lao_d257c0e272cd.mp3"
+  "ແບ่ง": {
+    "normal": "/audio/ແບ_ง_980b1fd76b7d.mp3",
+    "slow": "/audio/ແບ_ง_95fbce741047.mp3"
   },
-  "ຊາວພັນ": {
-    "normal": "/audio/lao_b6ae72ff5424.mp3",
-    "slow": "/audio/lao_7d011efbb41d.mp3"
+  "ເທົ່າກັບ": {
+    "normal": "/audio/ເທ__າກ_ບ_f4538ab0a318.mp3",
+    "slow": "/audio/ເທ__າກ_ບ_44b687196ec8.mp3"
   },
-  "ລົບ": {
-    "normal": "/audio/lao_7199073ccfde.mp3",
-    "slow": "/audio/lao_fc54d63f8cd5.mp3"
+  "ອັນ": {
+    "normal": "/audio/ອ_ນ_fa034350b878.mp3",
+    "slow": "/audio/ອ_ນ_a4a9e765a18b.mp3"
   },
-  "ໜຶ່ງແສນ": {
-    "normal": "/audio/lao_7fdcdf17d5d7.mp3",
-    "slow": "/audio/lao_143964f806f5.mp3"
+  "ໂຕ": {
+    "normal": "/audio/ໂຕ_7ce5ec46d034.mp3",
+    "slow": "/audio/ໂຕ_dc5d2f8c4167.mp3"
   },
-  "ລາຄາສຸດທ້າຍ": {
-    "normal": "/audio/lao_f51a49975750.mp3",
-    "slow": "/audio/lao_ee7e4cf90ad3.mp3"
+  "ກ່ອງ": {
+    "normal": "/audio/ກ_ອງ_5274a7a3e99b.mp3",
+    "slow": "/audio/ກ_ອງ_af39ef1ea814.mp3"
   },
-  "ໜຶ່ງຮ້ອຍລ້ານ": {
-    "normal": "/audio/lao_96c4a6d53b4d.mp3",
-    "slow": "/audio/lao_aa6cf614f842.mp3"
+  "ຖົງ": {
+    "normal": "/audio/ຖ_ງ_bc514fa028ee.mp3",
+    "slow": "/audio/ຖ_ງ_bf2c11c3a2f9.mp3"
   },
-  "ໜຶ່ງລ້ານ": {
-    "normal": "/audio/lao_736879e43f81.mp3",
-    "slow": "/audio/lao_efe7cce9e0ec.mp3"
+  "ແກ້ວ": {
+    "normal": "/audio/ແກ_ວ_ec8bf1004ba6.mp3",
+    "slow": "/audio/ແກ_ວ_57a65543b3cc.mp3"
   },
-  "ຫ້າສິບພັນ": {
-    "normal": "/audio/lao_eef230f6ffaa.mp3",
-    "slow": "/audio/lao_cf6c64918ab8.mp3"
+  "ແພັກ": {
+    "normal": "/audio/ແພ_ກ_7edc4e533d7a.mp3",
+    "slow": "/audio/ແພ_ກ_52f2863c5753.mp3"
   },
-  "ຫ້າແສນ": {
-    "normal": "/audio/lao_6649262f75d1.mp3",
-    "slow": "/audio/lao_c72c47808b91.mp3"
+  "ກິໂລ": {
+    "normal": "/audio/ກ_ໂລ_48b497e68476.mp3",
+    "slow": "/audio/ກ_ໂລ_2da1edc1263c.mp3"
   },
-  "ຫຼຸດໃຫ້ແດ່": {
-    "normal": "/audio/lao_bf1de08296f4.mp3",
-    "slow": "/audio/lao_6061f36849e6.mp3"
+  "ກຣາມ": {
+    "normal": "/audio/ກຣາມ_b03ad092fd25.mp3",
+    "slow": "/audio/ກຣາມ_7520f381dcd2.mp3"
   },
-  "ຫ້າລ້ານ": {
-    "normal": "/audio/lao_cb4b74cf0110.mp3",
-    "slow": "/audio/lao_265fd2aa7cef.mp3"
+  "ລິດ": {
+    "normal": "/audio/ລ_ດ_315c54d8aa11.mp3",
+    "slow": "/audio/ລ_ດ_7a35298e041d.mp3"
   },
-  "ສິບລ້ານ": {
-    "normal": "/audio/lao_bb84666f2bd6.mp3",
-    "slow": "/audio/lao_100a750a79a1.mp3"
+  "ແມັດ": {
+    "normal": "/audio/ແມ_ດ_e7e132c51d6b.mp3",
+    "slow": "/audio/ແມ_ດ_d86885d6ed25.mp3"
   },
-  "ຫ້າພັນກີບ": {
-    "normal": "/audio/lao_9dac55842a0a.mp3",
-    "slow": "/audio/lao_ed82780dd1aa.mp3"
+  "ບ່ອນ": {
+    "normal": "/audio/ບ_ອນ_d1f892ca4143.mp3",
+    "slow": "/audio/ບ_ອນ_66155031ca01.mp3"
   },
-  "ສິບພັນກີບ": {
-    "normal": "/audio/lao_44a4d7136c41.mp3",
-    "slow": "/audio/lao_c1789f2c2030.mp3"
+  "ຕົ້ນ": {
+    "normal": "/audio/ຕ__ນ_266af58ed1c5.mp3",
+    "slow": "/audio/ຕ__ນ_7fedd6f63107.mp3"
   },
-  "ຊາວພັນກີບ": {
-    "normal": "/audio/lao_df51e5bb8fbb.mp3",
-    "slow": "/audio/lao_dfd7287d87da.mp3"
+  "ດັມ": {
+    "normal": "/audio/ດ_ມ_2db1c6072403.mp3",
+    "slow": "/audio/ດ_ມ_b376b5b3185f.mp3"
   },
-  "ຫ້າສິບພັນກີບ": {
-    "normal": "/audio/lao_b239424983b4.mp3",
-    "slow": "/audio/lao_ccfd26d4231d.mp3"
+  "ຄູ່": {
+    "normal": "/audio/ຄ_6d1572c7f62b.mp3",
+    "slow": "/audio/ຄ_e6a147b21197.mp3"
   },
-  "ໜຶ່ງແສນກີບ": {
-    "normal": "/audio/lao_6cde384cf180.mp3",
-    "slow": "/audio/lao_d5ed6e975455.mp3"
+  "ຊຸດ": {
+    "normal": "/audio/ຊ_ດ_de94d3d68f46.mp3",
+    "slow": "/audio/ຊ_ດ_3dc194eb56fe.mp3"
   },
-  "ສອງແສນກີບ": {
-    "normal": "/audio/lao_6f7355f95199.mp3",
-    "slow": "/audio/lao_e691356804df.mp3"
+  "ເສັ້ນ": {
+    "normal": "/audio/ເສ__ນ_15d5676de3fa.mp3",
+    "slow": "/audio/ເສ__ນ_4fa81649eac4.mp3"
   },
-  "ຫ້າແສນກີບ": {
-    "normal": "/audio/lao_9420e3b6a713.mp3",
-    "slow": "/audio/lao_943b75a6d0b8.mp3"
-  },
-  "ໜຶ່ງລ້ານກີບ": {
-    "normal": "/audio/lao_68eb569c2141.mp3",
-    "slow": "/audio/lao_78322587d463.mp3"
-  },
-  "ຫ້າລ້ານກີບ": {
-    "normal": "/audio/lao_e4d951a85aca.mp3",
-    "slow": "/audio/lao_ad16c8110233.mp3"
+  "ຊິ້ນ": {
+    "normal": "/audio/ຊ__ນ_5ff196ad4e9d.mp3",
+    "slow": "/audio/ຊ__ນ_87b901e0fc7d.mp3"
   }
 }
