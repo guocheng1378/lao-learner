@@ -1,0 +1,758 @@
+{
+  "ກ ໄກ่": {
+    "normal": "/audio/ກ_ໄກ_13967f100c78.mp3",
+    "slow": "/audio/ກ_ໄກ_92c74f66db8d.mp3"
+  },
+  "ກັດ": {
+    "normal": "/audio/ກ_ດ_28c5b8c2bcca.mp3",
+    "slow": "/audio/ກ_ດ_6522b22b54aa.mp3"
+  },
+  "ກາ": {
+    "normal": "/audio/ກາ_c77c7a76620c.mp3",
+    "slow": "/audio/ກາ_a32442e54789.mp3"
+  },
+  "ກຳໄລ": {
+    "normal": "/audio/ກຳໄລ_792aef2c1053.mp3",
+    "slow": "/audio/ກຳໄລ_773fbc622d31.mp3"
+  },
+  "ກິນ ນ້ຳ ຫຍັງ?": {
+    "normal": "/audio/ກ_ນ_ນ_ຳ_ຫຍ_ງ_e78c06a2588c.mp3",
+    "slow": "/audio/ກ_ນ_ນ_ຳ_ຫຍ_ງ_bd061d30f3c5.mp3"
+  },
+  "ກິນເຂົ້າ": {
+    "normal": "/audio/ກ_ນເຂ__າ_645ccb65c8c8.mp3",
+    "slow": "/audio/ກ_ນເຂ__າ_be3da6b840f5.mp3"
+  },
+  "ກີບ": {
+    "normal": "/audio/ກ_ບ_745a673dc6ce.mp3",
+    "slow": "/audio/ກ_ບ_fc812c28360d.mp3"
+  },
+  "ກ່າ": {
+    "normal": "/audio/ກ_າ_b17c747fe8d8.mp3",
+    "slow": "/audio/ກ_າ_089c8605b5b0.mp3"
+  },
+  "ກ້າ": {
+    "normal": "/audio/ກ_າ_0c95b0b2db38.mp3",
+    "slow": "/audio/ກ_າ_038a783f1a12.mp3"
+  },
+  "ກ໊າ": {
+    "normal": "/audio/ກ_າ_1577836ea14f.mp3",
+    "slow": "/audio/ກ_າ_f7f51f380238.mp3"
+  },
+  "ກ໋າ": {
+    "normal": "/audio/ກ_າ_f70058ab6332.mp3",
+    "slow": "/audio/ກ_າ_e5f00e6486e9.mp3"
+  },
+  "ຂ ໄຂ່": {
+    "normal": "/audio/ຂ_ໄຂ_516fa4f4e8e1.mp3",
+    "slow": "/audio/ຂ_ໄຂ_382b2154e5b0.mp3"
+  },
+  "ຂອບໃຈ": {
+    "normal": "/audio/ຂອບໃຈ_92bb7810d483.mp3",
+    "slow": "/audio/ຂອບໃຈ_c9a70075141f.mp3"
+  },
+  "ຂອບໃຈຫຼາຍ": {
+    "normal": "/audio/ຂອບໃຈຫ_າຍ_fa88f22199b6.mp3",
+    "slow": "/audio/ຂອບໃຈຫ_າຍ_c2f2f6c689a9.mp3"
+  },
+  "ຂາ": {
+    "normal": "/audio/ຂາ_1fd00735e7ff.mp3",
+    "slow": "/audio/ຂາ_7f2753ab671e.mp3"
+  },
+  "ຂາຍ": {
+    "normal": "/audio/ຂາຍ_7df76e1681d1.mp3",
+    "slow": "/audio/ຂາຍ_517edd71957d.mp3"
+  },
+  "ຂ້ອຍ ຈະ ຢູ່ ສິບ ມື້": {
+    "normal": "/audio/ຂ_ອຍ_ຈະ_ຢ___ສ_ບ_ມ_aadbd555acc7.mp3",
+    "slow": "/audio/ຂ_ອຍ_ຈະ_ຢ___ສ_ບ_ມ_8c8cd8e4a9d5.mp3"
+  },
+  "ຂ້ອຍ ຕ້ອງການ ເຫັນ ໝໍ": {
+    "normal": "/audio/ຂ_ອຍ_ຕ_ອງການ_ເຫ_ນ_ໝ_bc8579a7aafc.mp3",
+    "slow": "/audio/ຂ_ອຍ_ຕ_ອງການ_ເຫ_ນ_ໝ_6174e134ec0c.mp3"
+  },
+  "ຂ້ອຍ ຖືກ ລັກ": {
+    "normal": "/audio/ຂ_ອຍ_ຖ_ກ_ລ_ກ_8b3ce3385920.mp3",
+    "slow": "/audio/ຂ_ອຍ_ຖ_ກ_ລ_ກ_316ac289ea79.mp3"
+  },
+  "ຂ້ອຍ ມາ ທ່ຽວ": {
+    "normal": "/audio/ຂ_ອຍ_ມາ_ທ_ຽວ_40edc05810cc.mp3",
+    "slow": "/audio/ຂ_ອຍ_ມາ_ທ_ຽວ_06cc652d3397.mp3"
+  },
+  "ຂ້ອຍ ມາ ເຮັດວຽກ": {
+    "normal": "/audio/ຂ_ອຍ_ມາ_ເຮ_ດວຽກ_865ea1317783.mp3",
+    "slow": "/audio/ຂ_ອຍ_ມາ_ເຮ_ດວຽກ_0987501f641e.mp3"
+  },
+  "ຂ້ອຍ ຢາກ ສົນທະນາ ເລື່ອງ ການຄ້າ": {
+    "normal": "/audio/ຂ_ອຍ_ຢາກ_ສ_ນທະນາ_ເລ_ded3b58dead3.mp3",
+    "slow": "/audio/ຂ_ອຍ_ຢາກ_ສ_ນທະນາ_ເລ_eaae6be42fac.mp3"
+  },
+  "ຂ້ອຍ ຢາກ ເຊົ່າ ຫ້ອງ": {
+    "normal": "/audio/ຂ_ອຍ_ຢາກ_ເຊ__າ_ຫ_ອງ_8c3fb4cc2ca8.mp3",
+    "slow": "/audio/ຂ_ອຍ_ຢາກ_ເຊ__າ_ຫ_ອງ_e58a2b92a85a.mp3"
+  },
+  "ຂ້ອຍ ຢາກ ເບິ່ງ ຫ້ອງກ່ອນ": {
+    "normal": "/audio/ຂ_ອຍ_ຢາກ_ເບ__ງ_ຫ_ອງກ_14732e2ad48b.mp3",
+    "slow": "/audio/ຂ_ອຍ_ຢາກ_ເບ__ງ_ຫ_ອງກ_13d1a55fbb85.mp3"
+  },
+  "ຂ້ອຍ ຢາກ ແລກ ຢວນ ເປັນ ກີບ": {
+    "normal": "/audio/ຂ_ອຍ_ຢາກ_ແລກ_ຢວນ_ເປ_f1a940d395c5.mp3",
+    "slow": "/audio/ຂ_ອຍ_ຢາກ_ແລກ_ຢວນ_ເປ_ace691f1cac9.mp3"
+  },
+  "ຂ້ອຍ ຢາກ ແລກເງິນ": {
+    "normal": "/audio/ຂ_ອຍ_ຢາກ_ແລກເງ_ນ_1dcd621e60b4.mp3",
+    "slow": "/audio/ຂ_ອຍ_ຢາກ_ແລກເງ_ນ_7defeabb35cd.mp3"
+  },
+  "ຂ້ອຍ ຢາກໂທ ຫາ ຈີນ": {
+    "normal": "/audio/ຂ_ອຍ_ຢາກໂທ_ຫາ_ຈ_ນ_dc1832a93469.mp3",
+    "slow": "/audio/ຂ_ອຍ_ຢາກໂທ_ຫາ_ຈ_ນ_0ccb1a9ae5d3.mp3"
+  },
+  "ຂ້ອຍ ຫຼົງທາງ": {
+    "normal": "/audio/ຂ_ອຍ_ຫ__ງທາງ_6fb97cbc176a.mp3",
+    "slow": "/audio/ຂ_ອຍ_ຫ__ງທາງ_befbb42db604.mp3"
+  },
+  "ຂ້ອຍ ເຈັບ": {
+    "normal": "/audio/ຂ_ອຍ_ເຈ_ບ_d60c02483b8d.mp3",
+    "slow": "/audio/ຂ_ອຍ_ເຈ_ບ_82475f421724.mp3"
+  },
+  "ຂ້ອຍ ເຈັບທ້ອງ": {
+    "normal": "/audio/ຂ_ອຍ_ເຈ_ບທ_ອງ_672c39cb1812.mp3",
+    "slow": "/audio/ຂ_ອຍ_ເຈ_ບທ_ອງ_77f782364c99.mp3"
+  },
+  "ຂ້ອຍ ເຈັບຫົວ": {
+    "normal": "/audio/ຂ_ອຍ_ເຈ_ບຫ_ວ_383bca01d825.mp3",
+    "slow": "/audio/ຂ_ອຍ_ເຈ_ບຫ_ວ_2f327d311fbf.mp3"
+  },
+  "ຂ້ອຍ ເປັນໄຂ້": {
+    "normal": "/audio/ຂ_ອຍ_ເປ_ນໄຂ_56b6291baf48.mp3",
+    "slow": "/audio/ຂ_ອຍ_ເປ_ນໄຂ_1fbeb40c2b0c.mp3"
+  },
+  "ຂ້ອຍ ແມ່ນ ຄົນຈີນ": {
+    "normal": "/audio/ຂ_ອຍ_ແມ_ນ_ຄ_ນຈ_ນ_3e538cd53bec.mp3",
+    "slow": "/audio/ຂ_ອຍ_ແມ_ນ_ຄ_ນຈ_ນ_20cddf1c3c39.mp3"
+  },
+  "ຂໍເບິ່ງເມນູແດ່": {
+    "normal": "/audio/ຂ_ເບ__ງເມນ_ແດ_174d7a226873.mp3",
+    "slow": "/audio/ຂ_ເບ__ງເມນ_ແດ_4d1102158c55.mp3"
+  },
+  "ຂໍໂທດ": {
+    "normal": "/audio/ຂ_ໂທດ_3b2b11e7535c.mp3",
+    "slow": "/audio/ຂ_ໂທດ_905f386832a6.mp3"
+  },
+  "ຄ ຄວາຍ": {
+    "normal": "/audio/ຄ_ຄວາຍ_6d256ff15d42.mp3",
+    "slow": "/audio/ຄ_ຄວາຍ_794a49254b53.mp3"
+  },
+  "ຄາ": {
+    "normal": "/audio/ຄາ_b2edf73f1eff.mp3",
+    "slow": "/audio/ຄາ_9d812b56fc57.mp3"
+  },
+  "ຄົນຈີນ": {
+    "normal": "/audio/ຄ_ນຈ_ນ_29784d04777c.mp3",
+    "slow": "/audio/ຄ_ນຈ_ນ_98616bd55b17.mp3"
+  },
+  "ຄ່າເຊົ່າ ເດືອນລະ ເທົ່າໃດ?": {
+    "normal": "/audio/ຄ_າເຊ__າ_ເດ_ອນລະ_ເທ_606bbefd38b6.mp3",
+    "slow": "/audio/ຄ_າເຊ__າ_ເດ_ອນລະ_ເທ_35698110e020.mp3"
+  },
+  "ຈ ຈาน": {
+    "normal": "/audio/ຈ_ຈาน_17ed8902bdb8.mp3",
+    "slow": "/audio/ຈ_ຈาน_87eb25144569.mp3"
+  },
+  "ຈາ": {
+    "normal": "/audio/ຈາ_f2d69f3d63a3.mp3",
+    "slow": "/audio/ຈາ_9295d17c79b9.mp3"
+  },
+  "ຈີນ": {
+    "normal": "/audio/ຈ_ນ_9ca1307a6ecd.mp3",
+    "slow": "/audio/ຈ_ນ_3eaaee253a83.mp3"
+  },
+  "ຈ່າຍເງິນ": {
+    "normal": "/audio/ຈ_າຍເງ_ນ_54c3ac0d5503.mp3",
+    "slow": "/audio/ຈ_າຍເງ_ນ_147a1f86310a.mp3"
+  },
+  "ຊ ຊ້າງ": {
+    "normal": "/audio/ຊ_ຊ_າງ_2bd37a30c37b.mp3",
+    "slow": "/audio/ຊ_ຊ_າງ_713b055e041d.mp3"
+  },
+  "ຊາ": {
+    "normal": "/audio/ຊາ_8c296d6fee11.mp3",
+    "slow": "/audio/ຊາ_ebc519b72910.mp3"
+  },
+  "ຊື່": {
+    "normal": "/audio/ຊ_d5d5001cfced.mp3",
+    "slow": "/audio/ຊ_b7953bd82d3c.mp3"
+  },
+  "ຊື້": {
+    "normal": "/audio/ຊ_9b1b5e7bc98f.mp3",
+    "slow": "/audio/ຊ_4496de6d9629.mp3"
+  },
+  "ຊ່ວຍ ແປ ໃຫ້ ແດ່": {
+    "normal": "/audio/ຊ_ວຍ_ແປ_ໃຫ__ແດ_99ccfc692808.mp3",
+    "slow": "/audio/ຊ_ວຍ_ແປ_ໃຫ__ແດ_a407c8ee837e.mp3"
+  },
+  "ຊ່ວຍ ໂທ ໃຫ້ ແດ່": {
+    "normal": "/audio/ຊ_ວຍ_ໂທ_ໃຫ__ແດ_a15878be0074.mp3",
+    "slow": "/audio/ຊ_ວຍ_ໂທ_ໃຫ__ແດ_66ca3975c722.mp3"
+  },
+  "ຊ່ວຍແດ່": {
+    "normal": "/audio/ຊ_ວຍແດ_7ffd8099d0b9.mp3",
+    "slow": "/audio/ຊ_ວຍແດ_7a1a60992771.mp3"
+  },
+  "ຊ່ວຍແດ່! ຊ່ວຍແດ່!": {
+    "normal": "/audio/ຊ_ວຍແດ___ຊ_ວຍແດ_0bb710c49a41.mp3",
+    "slow": "/audio/ຊ_ວຍແດ___ຊ_ວຍແດ_22c637e672eb.mp3"
+  },
+  "ຍ ຍຸງ": {
+    "normal": "/audio/ຍ_ຍ_ງ_58972edf2c15.mp3",
+    "slow": "/audio/ຍ_ຍ_ງ_ad3b6a4c8134.mp3"
+  },
+  "ຍາ": {
+    "normal": "/audio/ຍາ_97406e9ba9f1.mp3",
+    "slow": "/audio/ຍາ_2038bbb716e4.mp3"
+  },
+  "ຍິນດີ ເຊັ່ນກັນ": {
+    "normal": "/audio/ຍ_ນດ__ເຊ__ນກ_ນ_f9127ab892f0.mp3",
+    "slow": "/audio/ຍ_ນດ__ເຊ__ນກ_ນ_4fdc8d196723.mp3"
+  },
+  "ຍິນດີທີ່ໄດ້ຮູ້ຈັກ": {
+    "normal": "/audio/ຍ_ນດ_ທ__ໄດ_ຮ__ຈ_ກ_e80fcc83340f.mp3",
+    "slow": "/audio/ຍ_ນດ_ທ__ໄດ_ຮ__ຈ_ກ_ca69f80ceed3.mp3"
+  },
+  "ດ ເດັກ": {
+    "normal": "/audio/ດ_ເດ_ກ_2d2146c12df5.mp3",
+    "slow": "/audio/ດ_ເດ_ກ_cec254c5c769.mp3"
+  },
+  "ດອກ": {
+    "normal": "/audio/ດອກ_8494dd49e9b4.mp3",
+    "slow": "/audio/ດອກ_1f70e4dc5e11.mp3"
+  },
+  "ຕ ຕາ": {
+    "normal": "/audio/ຕ_ຕາ_bd72f7fb68fa.mp3",
+    "slow": "/audio/ຕ_ຕາ_8e8de3b21d9e.mp3"
+  },
+  "ຕະຫຼາດ": {
+    "normal": "/audio/ຕະຫ_າດ_20d91b3a116f.mp3",
+    "slow": "/audio/ຕະຫ_າດ_9568c1b3bf4a.mp3"
+  },
+  "ຕາ": {
+    "normal": "/audio/ຕາ_4fac522b727f.mp3",
+    "slow": "/audio/ຕາ_75599b6227e8.mp3"
+  },
+  "ຕົກລົງ, ສັ່ງ ຊື້": {
+    "normal": "/audio/ຕ_ກລ_ງ__ສ__ງ_ຊ_38ace6d749e7.mp3",
+    "slow": "/audio/ຕ_ກລ_ງ__ສ__ງ_ຊ_9558693dedde.mp3"
+  },
+  "ຕົ້ນທຶນ": {
+    "normal": "/audio/ຕ__ນທ_ນ_908a87bfdcdf.mp3",
+    "slow": "/audio/ຕ__ນທ_ນ_de8bf803a61f.mp3"
+  },
+  "ຖ ຖົງ": {
+    "normal": "/audio/ຖ_ຖ_ງ_eb027d70a863.mp3",
+    "slow": "/audio/ຖ_ຖ_ງ_02d43eb21a77.mp3"
+  },
+  "ຖາ": {
+    "normal": "/audio/ຖາ_cb0f0dcb824b.mp3",
+    "slow": "/audio/ຖາ_e94e49eb096a.mp3"
+  },
+  "ຖືກ": {
+    "normal": "/audio/ຖ_ກ_416e15c2b597.mp3",
+    "slow": "/audio/ຖ_ກ_b82aa54a0ade.mp3"
+  },
+  "ຖືກກວ່າໄດ້ບໍ່?": {
+    "normal": "/audio/ຖ_ກກວ_າໄດ_ບ_22139e2682b3.mp3",
+    "slow": "/audio/ຖ_ກກວ_າໄດ_ບ_d57abac4c98d.mp3"
+  },
+  "ທ ທຸງ": {
+    "normal": "/audio/ທ_ທ_ງ_642268e08973.mp3",
+    "slow": "/audio/ທ_ທ_ງ_be832807a7a9.mp3"
+  },
+  "ທາ": {
+    "normal": "/audio/ທາ_5392e04521b9.mp3",
+    "slow": "/audio/ທາ_d93940bf5ca9.mp3"
+  },
+  "ທາງ": {
+    "normal": "/audio/ທາງ_f461b4da6986.mp3",
+    "slow": "/audio/ທາງ_a3d2fee19069.mp3"
+  },
+  "ນ ນົກ": {
+    "normal": "/audio/ນ_ນ_ກ_5ac35ccb315c.mp3",
+    "slow": "/audio/ນ_ນ_ກ_f6421cf2b745.mp3"
+  },
+  "ນາ": {
+    "normal": "/audio/ນາ_4645f41167d5.mp3",
+    "slow": "/audio/ນາ_e2ec5c9bebe5.mp3"
+  },
+  "ນີ້ ແມ່ນ ຫນັງສືຜ່ານຂອບຂອຍ": {
+    "normal": "/audio/ນ___ແມ_ນ_ຫນ_ງສ_ຜ_ານຂ_3472c04bbc05.mp3",
+    "slow": "/audio/ນ___ແມ_ນ_ຫນ_ງສ_ຜ_ານຂ_c083bad24826.mp3"
+  },
+  "ນີ້ເລີຍ, ເອົາຫຍັງ?": {
+    "normal": "/audio/ນ__ເລ_ຍ__ເອ_າຫຍ_ງ_ee98e8620072.mp3",
+    "slow": "/audio/ນ__ເລ_ຍ__ເອ_າຫຍ_ງ_19a1c08012f8.mp3"
+  },
+  "ນ້ຳ": {
+    "normal": "/audio/ນ_ຳ_c99583dac5cd.mp3",
+    "slow": "/audio/ນ_ຳ_5a4f3e35d72a.mp3"
+  },
+  "ນ້ຳ ແກ້ວ ນຶ່ງ": {
+    "normal": "/audio/ນ_ຳ_ແກ_ວ_ນ__ງ_d9d40e71676d.mp3",
+    "slow": "/audio/ນ_ຳ_ແກ_ວ_ນ__ງ_85a6bbb3cf60.mp3"
+  },
+  "ບ ແບ້": {
+    "normal": "/audio/ບ_ແບ_7e02f065b5d9.mp3",
+    "slow": "/audio/ບ_ແບ_31aacb998d37.mp3"
+  },
+  "ບັດ ATM ຢູ່ ໃສ?": {
+    "normal": "/audio/ບ_ດ_ATM_ຢ___ໃສ_fb46b316574d.mp3",
+    "slow": "/audio/ບ_ດ_ATM_ຢ___ໃສ_67cab62a9d84.mp3"
+  },
+  "ບາ": {
+    "normal": "/audio/ບາ_b339e59c5af5.mp3",
+    "slow": "/audio/ບາ_0150aa4ae4d4.mp3"
+  },
+  "ບາດ": {
+    "normal": "/audio/ບາດ_93a92535bfac.mp3",
+    "slow": "/audio/ບາດ_b039d9337b8a.mp3"
+  },
+  "ບິນ": {
+    "normal": "/audio/ບ_ນ_950b3292f612.mp3",
+    "slow": "/audio/ບ_ນ_b4c4f21426f3.mp3"
+  },
+  "ບໍ່": {
+    "normal": "/audio/ບ_beee094d5775.mp3",
+    "slow": "/audio/ບ_4c11f5a19715.mp3"
+  },
+  "ບໍ່ ເຜັດ": {
+    "normal": "/audio/ບ___ເຜ_ດ_5e0cc09766d6.mp3",
+    "slow": "/audio/ບ___ເຜ_ດ_22d808487c21.mp3"
+  },
+  "ບໍ່ ໄດ້ ຍິນ": {
+    "normal": "/audio/ບ___ໄດ__ຍ_ນ_687d604467be.mp3",
+    "slow": "/audio/ບ___ໄດ__ຍ_ນ_bba6e864d230.mp3"
+  },
+  "ບໍ່ເປັນไร": {
+    "normal": "/audio/ບ__ເປ_ນไร_20614dc3b9cc.mp3",
+    "slow": "/audio/ບ__ເປ_ນไร_2d22fc7e90fc.mp3"
+  },
+  "ປ ປາ": {
+    "normal": "/audio/ປ_ປາ_e88cf62badd4.mp3",
+    "slow": "/audio/ປ_ປາ_18fffb511c68.mp3"
+  },
+  "ປະມານ ຊາມ ສິບ ນາທີ": {
+    "normal": "/audio/ປະມານ_ຊາມ_ສ_ບ_ນາທ_7e066a8fde4d.mp3",
+    "slow": "/audio/ປະມານ_ຊາມ_ສ_ບ_ນາທ_853f303be761.mp3"
+  },
+  "ປາ": {
+    "normal": "/audio/ປາ_50f8a83dc573.mp3",
+    "slow": "/audio/ປາ_1d54230239c9.mp3"
+  },
+  "ຜ ເຜິ້ງ": {
+    "normal": "/audio/ຜ_ເຜ__ງ_72dcb17a9297.mp3",
+    "slow": "/audio/ຜ_ເຜ__ງ_311df98d5745.mp3"
+  },
+  "ຜັກ": {
+    "normal": "/audio/ຜ_ກ_eab0bde135f4.mp3",
+    "slow": "/audio/ຜ_ກ_433976dfa3db.mp3"
+  },
+  "ຝ ຝາ": {
+    "normal": "/audio/ຝ_ຝາ_03422d221a7d.mp3",
+    "slow": "/audio/ຝ_ຝາ_80b2963b09ac.mp3"
+  },
+  "ຝາ": {
+    "normal": "/audio/ຝາ_4777f44a7040.mp3",
+    "slow": "/audio/ຝາ_6cd4a72481ca.mp3"
+  },
+  "ພ ພູ": {
+    "normal": "/audio/ພ_ພ_d9a989f4a98a.mp3",
+    "slow": "/audio/ພ_ພ_892aef2991c1.mp3"
+  },
+  "ພັນ": {
+    "normal": "/audio/ພ_ນ_2c3d621d8499.mp3",
+    "slow": "/audio/ພ_ນ_d516901faf4d.mp3"
+  },
+  "ພາ": {
+    "normal": "/audio/ພາ_ae70d34505fa.mp3",
+    "slow": "/audio/ພາ_98520d992bf9.mp3"
+  },
+  "ຟ ໄຟ": {
+    "normal": "/audio/ຟ_ໄຟ_4e5e9432d5f0.mp3",
+    "slow": "/audio/ຟ_ໄຟ_3a7dbfa31967.mp3"
+  },
+  "ຟາ": {
+    "normal": "/audio/ຟາ_1bbbad6fe765.mp3",
+    "slow": "/audio/ຟາ_0c26a4d557ca.mp3"
+  },
+  "ມ ແມວ": {
+    "normal": "/audio/ມ_ແມວ_794f0dfe029f.mp3",
+    "slow": "/audio/ມ_ແມວ_0c368dfb2a6b.mp3"
+  },
+  "ມາ": {
+    "normal": "/audio/ມາ_0bd6e8520e34.mp3",
+    "slow": "/audio/ມາ_f90461479799.mp3"
+  },
+  "ມາຮອດແລ້ວ, ຂອບໃຈ": {
+    "normal": "/audio/ມາຮອດແລ_ວ__ຂອບໃຈ_b2630b9dfc8a.mp3",
+    "slow": "/audio/ມາຮອດແລ_ວ__ຂອບໃຈ_e08de3c8e57d.mp3"
+  },
+  "ມີ ນ້ຳ ມີ ໄຟ ບໍ່?": {
+    "normal": "/audio/ມ__ນ_ຳ_ມ__ໄຟ_ບ_9910263285e8.mp3",
+    "slow": "/audio/ມ__ນ_ຳ_ມ__ໄຟ_ບ_2b4e948409f9.mp3"
+  },
+  "ມີ ຜົນໄມ້ ແລະ ຜັກ": {
+    "normal": "/audio/ມ__ຜ_ນໄມ__ແລະ_ຜ_ກ_7b1a031990a6.mp3",
+    "slow": "/audio/ມ__ຜ_ນໄມ__ແລະ_ຜ_ກ_5c21f115c25f.mp3"
+  },
+  "ຢ ຢາ": {
+    "normal": "/audio/ຢ_ຢາ_a4d5a2a0d6a2.mp3",
+    "slow": "/audio/ຢ_ຢາ_d413622c0a42.mp3"
+  },
+  "ຢວນ": {
+    "normal": "/audio/ຢວນ_415b3498b988.mp3",
+    "slow": "/audio/ຢວນ_da6a328b6b5b.mp3"
+  },
+  "ຢາ": {
+    "normal": "/audio/ຢາ_692f252897ef.mp3",
+    "slow": "/audio/ຢາ_bb619f639bb5.mp3"
+  },
+  "ຢູ່ ໃສ ມີ ໂຮງຫມໍ?": {
+    "normal": "/audio/ຢ___ໃສ_ມ__ໂຮງຫມ_007282f88d8b.mp3",
+    "slow": "/audio/ຢ___ໃສ_ມ__ໂຮງຫມ_a62eb8cc967f.mp3"
+  },
+  "ຢູ່ໃສ": {
+    "normal": "/audio/ຢ__ໃສ_b9a74770542a.mp3",
+    "slow": "/audio/ຢ__ໃສ_d670983e73b1.mp3"
+  },
+  "ລ ລີງ": {
+    "normal": "/audio/ລ_ລ_ງ_16ed586feb9d.mp3",
+    "slow": "/audio/ລ_ລ_ງ_db09b9175a86.mp3"
+  },
+  "ລາ": {
+    "normal": "/audio/ລາ_60f5b17ed9e5.mp3",
+    "slow": "/audio/ລາ_d73601c5fab8.mp3"
+  },
+  "ລາຄາ": {
+    "normal": "/audio/ລາຄາ_c0b1d193cb42.mp3",
+    "slow": "/audio/ລາຄາ_14bfc3147106.mp3"
+  },
+  "ລາຄາ ຂາຍ ສົ່ງ ເທົ່າໃດ?": {
+    "normal": "/audio/ລາຄາ_ຂາຍ_ສ__ງ_ເທ__າໃ_63c316d85b56.mp3",
+    "slow": "/audio/ລາຄາ_ຂາຍ_ສ__ງ_ເທ__າໃ_b62e3578e5c7.mp3"
+  },
+  "ລາຄາ ເທົ່າໃດ?": {
+    "normal": "/audio/ລາຄາ_ເທ__າໃດ_e8d9ea616f88.mp3",
+    "slow": "/audio/ລາຄາ_ເທ__າໃດ_5f03e9795ede.mp3"
+  },
+  "ລົດ": {
+    "normal": "/audio/ລ_ດ_2303b8399fe9.mp3",
+    "slow": "/audio/ລ_ດ_94a4b24e03ae.mp3"
+  },
+  "ລົດເມ": {
+    "normal": "/audio/ລ_ດເມ_7dfae4fb91b4.mp3",
+    "slow": "/audio/ລ_ດເມ_d44cce55ec19.mp3"
+  },
+  "ລົດແທັກຊີ": {
+    "normal": "/audio/ລ_ດແທ_ກຊ_df1f4b3dbf84.mp3",
+    "slow": "/audio/ລ_ດແທ_ກຊ_6588595c03c2.mp3"
+  },
+  "ລົດແທັກຊີ, ໄປ ໂຮງແຮມ": {
+    "normal": "/audio/ລ_ດແທ_ກຊ___ໄປ_ໂຮງແຮມ_4f3ea3b86650.mp3",
+    "slow": "/audio/ລ_ດແທ_ກຊ___ໄປ_ໂຮງແຮມ_4ee3c4da9cf8.mp3"
+  },
+  "ລ້ານ": {
+    "normal": "/audio/ລ_ານ_168f4da48693.mp3",
+    "slow": "/audio/ລ_ານ_e2566a59a9ee.mp3"
+  },
+  "ລໍຖ້າ ສິບ ນາທີ": {
+    "normal": "/audio/ລ_ຖ_າ_ສ_ບ_ນາທ_8380aacc2864.mp3",
+    "slow": "/audio/ລ_ຖ_າ_ສ_ບ_ນາທ_ced6b93c0cf1.mp3"
+  },
+  "ວ ວີ": {
+    "normal": "/audio/ວ_ວ_db1a0f504220.mp3",
+    "slow": "/audio/ວ_ວ_109fa630b5a5.mp3"
+  },
+  "ວາ": {
+    "normal": "/audio/ວາ_16236354a687.mp3",
+    "slow": "/audio/ວາ_faab33ad835a.mp3"
+  },
+  "ສ ເສືອ": {
+    "normal": "/audio/ສ_ເສ_ອ_84913abecdf7.mp3",
+    "slow": "/audio/ສ_ເສ_ອ_f8a54282cd8b.mp3"
+  },
+  "ສອງ": {
+    "normal": "/audio/ສອງ_e7915a23275b.mp3",
+    "slow": "/audio/ສອງ_b76f488d76e3.mp3"
+  },
+  "ສອງ ແສນ ກີບ": {
+    "normal": "/audio/ສອງ_ແສນ_ກ_ບ_b482b7ee2b12.mp3",
+    "slow": "/audio/ສອງ_ແສນ_ກ_ບ_349c3b41f2b6.mp3"
+  },
+  "ສະບາຍດີ": {
+    "normal": "/audio/ສະບາຍດ_d563ccfb37c6.mp3",
+    "slow": "/audio/ສະບາຍດ_e8742c374ce4.mp3"
+  },
+  "ສະບາຍດີ, ຂໍຖາມແດ່": {
+    "normal": "/audio/ສະບາຍດ___ຂ_ຖາມແດ_a1c7a2e8353d.mp3",
+    "slow": "/audio/ສະບາຍດ___ຂ_ຖາມແດ_5493d1fbdc5a.mp3"
+  },
+  "ສະບາຍດີ, ໄດ້ເລີຍ": {
+    "normal": "/audio/ສະບາຍດ___ໄດ_ເລ_ຍ_36e3c91d13d6.mp3",
+    "slow": "/audio/ສະບາຍດ___ໄດ_ເລ_ຍ_5cd2fd90a79e.mp3"
+  },
+  "ສະໜາມບິນ": {
+    "normal": "/audio/ສະໜາມບ_ນ_53d6c2300f1e.mp3",
+    "slow": "/audio/ສະໜາມບ_ນ_639df16cad99.mp3"
+  },
+  "ສັນຍາ ເຊົ່າ ກີ່ ເດືອນ?": {
+    "normal": "/audio/ສ_ນຍາ_ເຊ__າ_ກ___ເດ_ອ_5876fef36d34.mp3",
+    "slow": "/audio/ສ_ນຍາ_ເຊ__າ_ກ___ເດ_ອ_2bfadfd31074.mp3"
+  },
+  "ສັ່ງຊື້": {
+    "normal": "/audio/ສ__ງຊ_f9d66491dd4e.mp3",
+    "slow": "/audio/ສ__ງຊ_bd239904c61e.mp3"
+  },
+  "ສາ": {
+    "normal": "/audio/ສາ_aebd6502cd1a.mp3",
+    "slow": "/audio/ສາ_4012ab39ac0c.mp3"
+  },
+  "ສາມ": {
+    "normal": "/audio/ສາມ_5d389cb2c668.mp3",
+    "slow": "/audio/ສາມ_cba96595c281.mp3"
+  },
+  "ສິນຄ້າ": {
+    "normal": "/audio/ສ_ນຄ_າ_60273bcf7a88.mp3",
+    "slow": "/audio/ສ_ນຄ_າ_8fdd8c863a73.mp3"
+  },
+  "ສິບ": {
+    "normal": "/audio/ສ_ບ_13c6a3bfebfd.mp3",
+    "slow": "/audio/ສ_ບ_5880be341f91.mp3"
+  },
+  "ສີ່": {
+    "normal": "/audio/ສ_b2be221ab317.mp3",
+    "slow": "/audio/ສ_2f64cbb22418.mp3"
+  },
+  "ສົ່ງ ໃຫ້ ລາຄາ ພິເສດ": {
+    "normal": "/audio/ສ__ງ_ໃຫ__ລາຄາ_ພ_ເສດ_9cf564198e43.mp3",
+    "slow": "/audio/ສ__ງ_ໃຫ__ລາຄາ_ພ_ເສດ_c82979cc13a9.mp3"
+  },
+  "ຫ ຫ່ານ": {
+    "normal": "/audio/ຫ_ຫ_ານ_80a61fa2e36c.mp3",
+    "slow": "/audio/ຫ_ຫ_ານ_5fc8ece6ffe4.mp3"
+  },
+  "ຫວານ": {
+    "normal": "/audio/ຫວານ_5c152a83be1f.mp3",
+    "slow": "/audio/ຫວານ_6fbfeb0b9dec.mp3"
+  },
+  "ຫາ": {
+    "normal": "/audio/ຫາ_0bb32778679d.mp3",
+    "slow": "/audio/ຫາ_ad8742d4fe7c.mp3"
+  },
+  "ຫົກ": {
+    "normal": "/audio/ຫ_ກ_31a85a50af0d.mp3",
+    "slow": "/audio/ຫ_ກ_c3b9ddab74ec.mp3"
+  },
+  "ຫຼຸດ": {
+    "normal": "/audio/ຫ__ດ_891c34326b2c.mp3",
+    "slow": "/audio/ຫ__ດ_3ca463395b7a.mp3"
+  },
+  "ຫ້າ": {
+    "normal": "/audio/ຫ_າ_ae9458191769.mp3",
+    "slow": "/audio/ຫ_າ_b543157df3a7.mp3"
+  },
+  "ອ ອິງ": {
+    "normal": "/audio/ອ_ອ_ງ_fb1a125547ab.mp3",
+    "slow": "/audio/ອ_ອ_ງ_3d1a971efe28.mp3"
+  },
+  "ອັດຕາ ການ ແລກປ່ຽນ ເທົ່າໃດ?": {
+    "normal": "/audio/ອ_ດຕາ_ການ_ແລກປ_ຽນ_ເທ_924c4a64d0f0.mp3",
+    "slow": "/audio/ອ_ດຕາ_ການ_ແລກປ_ຽນ_ເທ_471e02fb7236.mp3"
+  },
+  "ອັນນີ້ ລາຄາ ເທົ່າໃດ?": {
+    "normal": "/audio/ອ_ນນ___ລາຄາ_ເທ__າໃດ_1f9e03b6d616.mp3",
+    "slow": "/audio/ອ_ນນ___ລາຄາ_ເທ__າໃດ_c665a9dafde2.mp3"
+  },
+  "ອັນນີ້ ສາມ ແສນ ກີບ": {
+    "normal": "/audio/ອ_ນນ___ສາມ_ແສນ_ກ_ບ_5e28def5ff42.mp3",
+    "slow": "/audio/ອ_ນນ___ສາມ_ແສນ_ກ_ບ_ba43d3d90c15.mp3"
+  },
+  "ອາກາດ": {
+    "normal": "/audio/ອາກາດ_d060ead28ad2.mp3",
+    "slow": "/audio/ອາກາດ_1a39ab1daab8.mp3"
+  },
+  "ຮ ເຮືອນ": {
+    "normal": "/audio/ຮ_ເຮ_ອນ_31b3528ddf86.mp3",
+    "slow": "/audio/ຮ_ເຮ_ອນ_f8a57b03c841.mp3"
+  },
+  "ຮ້ອຍ": {
+    "normal": "/audio/ຮ_ອຍ_9ecdc0eab9eb.mp3",
+    "slow": "/audio/ຮ_ອຍ_807fa3ada29d.mp3"
+  },
+  "ຮ້ານ": {
+    "normal": "/audio/ຮ_ານ_dcceb94b2fd1.mp3",
+    "slow": "/audio/ຮ_ານ_4360a465de2b.mp3"
+  },
+  "ເກົ້າ": {
+    "normal": "/audio/ເກ__າ_8549c1c8db50.mp3",
+    "slow": "/audio/ເກ__າ_c7c225c66d9e.mp3"
+  },
+  "ເຂົ້າ": {
+    "normal": "/audio/ເຂ__າ_b500ac9bc0df.mp3",
+    "slow": "/audio/ເຂ__າ_dc31ab8c9468.mp3"
+  },
+  "ເຄັມ": {
+    "normal": "/audio/ເຄ_ມ_2634b2d768ba.mp3",
+    "slow": "/audio/ເຄ_ມ_98685d7f0bb7.mp3"
+  },
+  "ເງິນສົດ": {
+    "normal": "/audio/ເງ_ນສ_ດ_e720714d31ba.mp3",
+    "slow": "/audio/ເງ_ນສ_ດ_63bf3e3e3eb1.mp3"
+  },
+  "ເຈັດ": {
+    "normal": "/audio/ເຈ_ດ_f8d9280784f0.mp3",
+    "slow": "/audio/ເຈ_ດ_489ece4c6186.mp3"
+  },
+  "ເທົ່າໃດ": {
+    "normal": "/audio/ເທ__າໃດ_1f9b14ab2336.mp3",
+    "slow": "/audio/ເທ__າໃດ_06f97891cc20.mp3"
+  },
+  "ເນື້ອ": {
+    "normal": "/audio/ເນ__ອ_41e49f2f42c5.mp3",
+    "slow": "/audio/ເນ__ອ_96d50f6c6c57.mp3"
+  },
+  "ເບີ ໂທລະສັບ ຂອງທ່ານ ແມ່ນ ຫຍັງ?": {
+    "normal": "/audio/ເບ__ໂທລະສ_ບ_ຂອງທ_ານ_18abfbce7d25.mp3",
+    "slow": "/audio/ເບ__ໂທລະສ_ບ_ຂອງທ_ານ_d2f0aadde92a.mp3"
+  },
+  "ເບີໂທ": {
+    "normal": "/audio/ເບ_ໂທ_dd3fc4009012.mp3",
+    "slow": "/audio/ເບ_ໂທ_9dde86473809.mp3"
+  },
+  "ເປັນຕາ": {
+    "normal": "/audio/ເປ_ນຕາ_0d2e977ba7fb.mp3",
+    "slow": "/audio/ເປ_ນຕາ_9561f0180bfd.mp3"
+  },
+  "ເຜັດ": {
+    "normal": "/audio/ເຜ_ດ_f7d83dec0cbb.mp3",
+    "slow": "/audio/ເຜ_ດ_30bc68306928.mp3"
+  },
+  "ເຜັດ ແນວໃດ?": {
+    "normal": "/audio/ເຜ_ດ_ແນວໃດ_918d24c81deb.mp3",
+    "slow": "/audio/ເຜ_ດ_ແນວໃດ_4028525c6276.mp3"
+  },
+  "ເພີ່ມ": {
+    "normal": "/audio/ເພ__ມ_5a8309829160.mp3",
+    "slow": "/audio/ເພ__ມ_01603459c752.mp3"
+  },
+  "ເອົາ ເຂົ້າ ຜັດ ແລະ ຕຳ ຍຳ": {
+    "normal": "/audio/ເອ_າ_ເຂ__າ_ຜ_ດ_ແລະ_ຕ_c07f518e9414.mp3",
+    "slow": "/audio/ເອ_າ_ເຂ__າ_ຜ_ດ_ແລະ_ຕ_a5b8de018ba3.mp3"
+  },
+  "ແປດ": {
+    "normal": "/audio/ແປດ_6c11e2bd9164.mp3",
+    "slow": "/audio/ແປດ_f4e130fe4cec.mp3"
+  },
+  "ແພງ": {
+    "normal": "/audio/ແພງ_1998c6f3e20e.mp3",
+    "slow": "/audio/ແພງ_cefad0cf9dad.mp3"
+  },
+  "ແມ່ນ": {
+    "normal": "/audio/ແມ_ນ_c986a0e47075.mp3",
+    "slow": "/audio/ແມ_ນ_d0ed9c6604b7.mp3"
+  },
+  "ແສນ": {
+    "normal": "/audio/ແສນ_76117fa2da33.mp3",
+    "slow": "/audio/ແສນ_f8eeeb121358.mp3"
+  },
+  "ໂດລາ": {
+    "normal": "/audio/ໂດລາ_0caf4bb8fefe.mp3",
+    "slow": "/audio/ໂດລາ_e4f471dc041a.mp3"
+  },
+  "ໂທ ໄປ ຕຳຫຼວດ": {
+    "normal": "/audio/ໂທ_ໄປ_ຕຳຫ_ວດ_d51c45fa5d70.mp3",
+    "slow": "/audio/ໂທ_ໄປ_ຕຳຫ_ວດ_783ddfce722a.mp3"
+  },
+  "ໂອນເງິນ": {
+    "normal": "/audio/ໂອນເງ_ນ_04509b698ae2.mp3",
+    "slow": "/audio/ໂອນເງ_ນ_a682bf1fc9c5.mp3"
+  },
+  "ໂຮງແຮມ": {
+    "normal": "/audio/ໂຮງແຮມ_8053cdfc62e3.mp3",
+    "slow": "/audio/ໂຮງແຮມ_ca9e1e16eb06.mp3"
+  },
+  "ໂຮງແຮມ ວຽງຈັນ": {
+    "normal": "/audio/ໂຮງແຮມ_ວຽງຈ_ນ_6e2f897f36a9.mp3",
+    "slow": "/audio/ໂຮງແຮມ_ວຽງຈ_ນ_c1a6bc480b7c.mp3"
+  },
+  "ໃກ້": {
+    "normal": "/audio/ໃກ_e004268ac981.mp3",
+    "slow": "/audio/ໃກ_4a9b045a357e.mp3"
+  },
+  "ໃຊ້ເວລາ ເທົ່າໃດ?": {
+    "normal": "/audio/ໃຊ_ເວລາ_ເທ__າໃດ_1bb65e7961ee.mp3",
+    "slow": "/audio/ໃຊ_ເວລາ_ເທ__າໃດ_d8406d735ca4.mp3"
+  },
+  "ໃບບິນ": {
+    "normal": "/audio/ໃບບ_ນ_2248a7801b6e.mp3",
+    "slow": "/audio/ໃບບ_ນ_0ad67388a0e5.mp3"
+  },
+  "ໄກ": {
+    "normal": "/audio/ໄກ_c668ad080bd4.mp3",
+    "slow": "/audio/ໄກ_e2a1209db205.mp3"
+  },
+  "ໄກ່": {
+    "normal": "/audio/ໄກ_8e24220400d3.mp3",
+    "slow": "/audio/ໄກ_144b9b19006e.mp3"
+  },
+  "ໄດ້": {
+    "normal": "/audio/ໄດ_a0324945d546.mp3",
+    "slow": "/audio/ໄດ_9fdf1efd9cfe.mp3"
+  },
+  "ໄດ້, ຫຼຸດໃຫ້ ສອງ ແສນ ເກົ້າ": {
+    "normal": "/audio/ໄດ___ຫ__ດໃຫ__ສອງ_ແສນ_3fe41a14af38.mp3",
+    "slow": "/audio/ໄດ___ຫ__ດໃຫ__ສອງ_ແສນ_1706a9cf84b0.mp3"
+  },
+  "ໄດ້, ເອົາ ອັນນີ້": {
+    "normal": "/audio/ໄດ___ເອ_າ_ອ_ນນ_a59554b7d5ca.mp3",
+    "slow": "/audio/ໄດ___ເອ_າ_ອ_ນນ_a974e7093f17.mp3"
+  },
+  "ໄດ້, ໂດຍ": {
+    "normal": "/audio/ໄດ___ໂດຍ_88fbd8da76fc.mp3",
+    "slow": "/audio/ໄດ___ໂດຍ_b3b0bbb3ed5d.mp3"
+  },
+  "ໄດ້ເລີຍ, ທ່ານ ມີ ສິນຄ້າ ຫຍັງ?": {
+    "normal": "/audio/ໄດ_ເລ_ຍ__ທ_ານ_ມ__ສ_ນ_ae237bb38eab.mp3",
+    "slow": "/audio/ໄດ_ເລ_ຍ__ທ_ານ_ມ__ສ_ນ_096f722eb81c.mp3"
+  },
+  "ໄປ": {
+    "normal": "/audio/ໄປ_76a17e2fe7c7.mp3",
+    "slow": "/audio/ໄປ_a1454e97dda5.mp3"
+  },
+  "ໄປ ໂຮງແຮມ ໃດ?": {
+    "normal": "/audio/ໄປ_ໂຮງແຮມ_ໃດ_47614fc57906.mp3",
+    "slow": "/audio/ໄປ_ໂຮງແຮມ_ໃດ_bd335dc69546.mp3"
+  },
+  "ໜຶ່ງ": {
+    "normal": "/audio/ໜ__ງ_33fc91975dd9.mp3",
+    "slow": "/audio/ໜ__ງ_fc8217cafd68.mp3"
+  },
+  "ສິບພັນ": {
+    "normal": "/audio/lao_b2d365c571cb.mp3",
+    "slow": "/audio/lao_02497cddfba4.mp3"
+  },
+  "ສູນ": {
+    "normal": "/audio/lao_6c4b937eacac.mp3",
+    "slow": "/audio/lao_ccafdefb2cf3.mp3"
+  },
+  "ຊາວ": {
+    "normal": "/audio/lao_a529f9737fc2.mp3",
+    "slow": "/audio/lao_d257c0e272cd.mp3"
+  },
+  "ຊາວພັນ": {
+    "normal": "/audio/lao_b6ae72ff5424.mp3",
+    "slow": "/audio/lao_7d011efbb41d.mp3"
+  },
+  "ລົບ": {
+    "normal": "/audio/lao_7199073ccfde.mp3",
+    "slow": "/audio/lao_fc54d63f8cd5.mp3"
+  }
+}

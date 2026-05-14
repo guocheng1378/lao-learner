@@ -1,4 +1,11 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
+import audioMap from '../audio-map.json';
+
+// Pre-generated audio paths for Lao text
+const laoAudioMap: Record<string, { normal: string; slow: string }> = audioMap as any;
+
+// GitHub Pages 子路径：运行时拼接 base
+const base = import.meta.env.BASE_URL || '/';
 
 export function useSpeech() {
   const [isListening, setIsListening] = useState(false);
@@ -8,12 +15,14 @@ export function useSpeech() {
   const recognitionRef = useRef<any>(null);
   const synthRef = useRef<SpeechSynthesis | null>(null);
   const voicesRef = useRef<SpeechSynthesisVoice[]>([]);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // 初始化
   useEffect(() => {
     if (typeof window === 'undefined') return;
     
     synthRef.current = window.speechSynthesis;
+    audioRef.current = new Audio();
     
     const loadVoices = () => {
       const v = synthRef.current?.getVoices() || [];
@@ -32,43 +41,75 @@ export function useSpeech() {
       synthRef.current.cancel();
     }
     
+    // Audio 事件
+    const audio = audioRef.current;
+    audio.onended = () => setIsSpeaking(false);
+    audio.onerror = () => setIsSpeaking(false);
+    
     return () => {
       synthRef.current?.removeEventListener('voiceschanged', loadVoices);
     };
   }, []);
 
-  // 找最佳语音
+  // 找最佳语音（非老挝语时使用）
   const findBestVoice = useCallback((targetLang: string): SpeechSynthesisVoice | null => {
     const voices = voicesRef.current;
     if (voices.length === 0) return null;
     
-    // 优先级：精确匹配 > 前缀匹配 > 近似语言
     const langPrefix = targetLang.split('-')[0];
     
-    // 精确匹配
     let v = voices.find(x => x.lang === targetLang);
     if (v) return v;
     
-    // 前缀匹配
     v = voices.find(x => x.lang.startsWith(langPrefix));
     if (v) return v;
     
-    // 老挝语 -> 泰语（语言近似）
     if (langPrefix === 'lo') {
       v = voices.find(x => x.lang.startsWith('th'));
       if (v) return v;
     }
     
-    // 中文
     v = voices.find(x => x.lang.startsWith('zh'));
     if (v) return v;
     
-    // 英语兜底
     v = voices.find(x => x.lang.startsWith('en'));
     return v || voices[0] || null;
   }, []);
 
-  // 朗读
+  // 播放预生成的音频文件
+  const playAudioFile = useCallback((src: string) => {
+    const audio = audioRef.current;
+    if (!audio) return false;
+    
+    // 停止之前的播放
+    audio.pause();
+    audio.currentTime = 0;
+    synthRef.current?.cancel();
+    
+    // 拼接 Vite base 路径（兼容 GitHub Pages 子路径部署）
+    const fullSrc = base + src.replace(/^\//, '');
+    audio.src = fullSrc;
+    audio.play().then(() => {
+      setIsSpeaking(true);
+    }).catch((e) => {
+      console.error('音频播放失败:', fullSrc, e);
+      setIsSpeaking(false);
+    });
+    return true;
+  }, []);
+
+  // 停止播放
+  const stopAll = useCallback(() => {
+    const audio = audioRef.current;
+    if (audio) {
+      audio.pause();
+      audio.currentTime = 0;
+    }
+    synthRef.current?.cancel();
+    setIsSpeaking(false);
+  }, []);
+
+  // 非老挝语的 Web Speech API 朗读
   const speakText = useCallback((text: string, lang: string) => {
     const synth = synthRef.current;
     if (!synth) {
@@ -76,15 +117,11 @@ export function useSpeech() {
       return;
     }
     
-    // 停止之前的
     synth.cancel();
     
     const utterance = new SpeechSynthesisUtterance(text);
     
-    // 设置语言
-    if (lang === 'lo') {
-      utterance.lang = 'lo-LA';
-    } else if (lang === 'th') {
+    if (lang === 'th') {
       utterance.lang = 'th-TH';
     } else if (lang === 'zh') {
       utterance.lang = 'zh-CN';
@@ -92,15 +129,13 @@ export function useSpeech() {
       utterance.lang = lang;
     }
     
-    utterance.rate = lang === 'lo' ? 0.7 : 0.9;
+    utterance.rate = 0.9;
     utterance.pitch = 1;
     utterance.volume = 1;
     
-    // 找语音
     const voice = findBestVoice(utterance.lang);
     if (voice) {
       utterance.voice = voice;
-      console.log('使用语音:', voice.name, voice.lang);
     }
     
     utterance.onstart = () => setIsSpeaking(true);
@@ -113,53 +148,52 @@ export function useSpeech() {
     synth.speak(utterance);
   }, [findBestVoice]);
 
-  // 老挝语
+  // 老挝语（使用预生成音频）
   const speakLao = useCallback((text: string) => {
-    speakText(text, 'lo');
-  }, [speakText]);
+    const entry = laoAudioMap[text];
+    if (entry?.normal) {
+      playAudioFile(entry.normal);
+    } else {
+      // Fallback: 无预生成音频时尝试 Web Speech API
+      console.warn('无预生成音频，回退到 Web Speech API:', text);
+      speakText(text, 'lo');
+    }
+  }, [playAudioFile, speakText]);
 
-  // 泰语
+  // 泰语（Web Speech API）
   const speakThai = useCallback((text: string) => {
     speakText(text, 'th');
   }, [speakText]);
 
-  // 中文
+  // 中文（Web Speech API）
   const speakChinese = useCallback((text: string) => {
     speakText(text, 'zh');
   }, [speakText]);
 
-  // 慢速
+  // 慢速老挝语（使用预生成音频）
   const speakSlow = useCallback((text: string) => {
-    const synth = synthRef.current;
-    if (!synth) return;
-    
-    synth.cancel();
-    
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'lo-LA';
-    utterance.rate = 0.4; // 很慢
-    utterance.pitch = 1;
-    
-    const voice = findBestVoice('lo-LA');
-    if (voice) utterance.voice = voice;
-    
-    utterance.onstart = () => setIsSpeaking(true);
-    utterance.onend = () => setIsSpeaking(false);
-    utterance.onerror = () => setIsSpeaking(false);
-    
-    synth.speak(utterance);
-  }, [findBestVoice]);
+    const entry = laoAudioMap[text];
+    if (entry?.slow) {
+      playAudioFile(entry.slow);
+    } else {
+      // Fallback
+      speakText(text, 'lo');
+    }
+  }, [playAudioFile, speakText]);
 
   // 通用
   const speak = useCallback((text: string, lang: string) => {
-    speakText(text, lang);
-  }, [speakText]);
+    if (lang === 'lo') {
+      speakLao(text);
+    } else {
+      speakText(text, lang);
+    }
+  }, [speakLao, speakText]);
 
   // 停止
   const stopSpeaking = useCallback(() => {
-    synthRef.current?.cancel();
-    setIsSpeaking(false);
-  }, []);
+    stopAll();
+  }, [stopAll]);
 
   // 语音识别
   const startListening = useCallback(() => {
