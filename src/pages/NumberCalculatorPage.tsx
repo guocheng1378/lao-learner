@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import { useSpeech } from '../hooks/useSpeech';
 
 interface Props {
@@ -89,6 +89,20 @@ export default function NumberCalculatorPage({ goBack }: Props) {
       kip: num.toLocaleString('lo-LA') + ' ກີບ',
     };
   }, [input]);
+
+  // 输入后自动播报（防抖 800ms）
+  const autoPlayTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => {
+    if (autoPlayTimer.current) clearTimeout(autoPlayTimer.current);
+    if (result && result.number > 0) {
+      autoPlayTimer.current = setTimeout(() => {
+        speakLao(result.lao + ' ກີບ');
+      }, 800);
+    }
+    return () => {
+      if (autoPlayTimer.current) clearTimeout(autoPlayTimer.current);
+    };
+  }, [result, speakLao]);
 
   // 货币换算
   const conversions = useMemo(() => {
