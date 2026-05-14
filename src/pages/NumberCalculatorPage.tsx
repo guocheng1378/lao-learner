@@ -147,7 +147,7 @@ export default function NumberCalculatorPage({ goBack }: Props) {
     if (autoPlayTimer.current) clearTimeout(autoPlayTimer.current);
     if (laoText && currentNumber && currentNumber > 0) {
       autoPlayTimer.current = setTimeout(() => {
-        speakLao(laoText);
+        speakLao(laoText, 1.3);
       }, 800);
     }
     return () => {
@@ -357,7 +357,7 @@ export default function NumberCalculatorPage({ goBack }: Props) {
               </div>
               <div className="flex items-center gap-1.5 flex-shrink-0">
                 <button
-                  onClick={(e) => { e.stopPropagation(); speakLao(laoText); }}
+                  onClick={(e) => { e.stopPropagation(); speakLao(laoText, 1.3); }}
                   disabled={isSpeaking}
                   className="p-1.5 bg-blue-200 dark:bg-blue-800 rounded-lg text-blue-700 dark:text-blue-300 hover:bg-blue-300 dark:hover:bg-blue-700 transition-colors text-xs"
                 >
@@ -382,7 +382,7 @@ export default function NumberCalculatorPage({ goBack }: Props) {
                   <div className="text-xs text-gray-400 dark:text-gray-500 mb-3">老挝语读法</div>
                   <div className="flex gap-2 justify-center">
                     <button
-                      onClick={() => speakLao(laoText)}
+                      onClick={() => speakLao(laoText, 1.3)}
                       disabled={isSpeaking}
                       className="px-4 py-2 bg-green-500 text-white rounded-xl text-sm font-medium hover:bg-green-600 transition-colors active:scale-95"
                     >
@@ -533,7 +533,7 @@ export default function NumberCalculatorPage({ goBack }: Props) {
                 </div>
                 <div className="flex gap-1 ml-2">
                   <button
-                    onClick={() => speakLao(p.lao)}
+                    onClick={() => speakLao(p.lao, 1.3)}
                     disabled={isSpeaking}
                     className="p-1.5 bg-green-100 dark:bg-green-900/30 rounded-lg text-green-600 dark:text-green-400 hover:bg-green-200 transition-colors text-xs"
                   >
@@ -561,7 +561,7 @@ export default function NumberCalculatorPage({ goBack }: Props) {
             {Object.entries(laoDigits).map(([num, lao]) => (
               <button
                 key={num}
-                onClick={() => speakLao(lao)}
+                onClick={() => speakLao(lao, 1.3)}
                 disabled={isSpeaking}
                 className="flex flex-col items-center py-2 bg-gray-50 dark:bg-gray-700 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors active:scale-95"
               >

@@ -77,7 +77,7 @@ export function useSpeech() {
   }, []);
 
   // 播放预生成的音频文件
-  const playAudioFile = useCallback((src: string) => {
+  const playAudioFile = useCallback((src: string, rate: number = 1) => {
     const audio = audioRef.current;
     if (!audio) return false;
     
@@ -89,6 +89,7 @@ export function useSpeech() {
     // 拼接 Vite base 路径（兼容 GitHub Pages 子路径部署）
     const fullSrc = base + src.replace(/^\//, '');
     audio.src = fullSrc;
+    audio.playbackRate = rate;
     audio.play().then(() => {
       setIsSpeaking(true);
     }).catch((e) => {
@@ -99,7 +100,7 @@ export function useSpeech() {
   }, []);
 
   // 顺序播放多个音频片段
-  const playAudioSequence = useCallback((srcs: string[]) => {
+  const playAudioSequence = useCallback((srcs: string[], rate: number = 1) => {
     const audio = audioRef.current;
     if (!audio || srcs.length === 0) return false;
 
@@ -115,6 +116,7 @@ export function useSpeech() {
       }
       const fullSrc = base + srcs[index].replace(/^\//, '');
       audio.src = fullSrc;
+      audio.playbackRate = rate;
       audio.play().catch(() => {
         // 跳过失败的片段，继续下一个
         index++;
@@ -184,16 +186,16 @@ export function useSpeech() {
   }, [findBestVoice]);
 
   // 老挝语（使用预生成音频）
-  const speakLao = useCallback((text: string) => {
+  const speakLao = useCallback((text: string, rate: number = 1) => {
     const entry = laoAudioMap[text];
     if (entry?.normal) {
-      playAudioFile(entry.normal);
+      playAudioFile(entry.normal, rate);
     } else {
       // 尝试按空格拆分为多个词顺序播放
       const words = text.split(/\s+/).filter(Boolean);
       const srcs = words.map(w => laoAudioMap[w]?.normal).filter(Boolean) as string[];
       if (srcs.length === words.length && srcs.length > 0) {
-        playAudioSequence(srcs);
+        playAudioSequence(srcs, rate);
       } else {
         // Fallback: 无预生成音频时尝试 Web Speech API
         console.warn('无预生成音频，回退到 Web Speech API:', text);
@@ -213,15 +215,15 @@ export function useSpeech() {
   }, [speakText]);
 
   // 慢速老挝语（使用预生成音频）
-  const speakSlow = useCallback((text: string) => {
+  const speakSlow = useCallback((text: string, rate: number = 1) => {
     const entry = laoAudioMap[text];
     if (entry?.slow) {
-      playAudioFile(entry.slow);
+      playAudioFile(entry.slow, rate);
     } else {
       const words = text.split(/\s+/).filter(Boolean);
       const srcs = words.map(w => laoAudioMap[w]?.slow).filter(Boolean) as string[];
       if (srcs.length === words.length && srcs.length > 0) {
-        playAudioSequence(srcs);
+        playAudioSequence(srcs, rate);
       } else {
         speakText(text, 'lo');
       }
