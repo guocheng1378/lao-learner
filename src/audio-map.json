@@ -818,5 +818,369 @@
   "ຊິ້ນ": {
     "normal": "/audio/ຊ__ນ_5ff196ad4e9d.mp3",
     "slow": "/audio/ຊ__ນ_87b901e0fc7d.mp3"
+  },
+  "ໝາກມ່ວງ": {
+    "normal": "/audio/ໝາກມ_ວງ_ae72aa18172d.mp3",
+    "slow": "/audio/ໝາກມ_ວງ_ad5ccb08fe73.mp3"
+  },
+  "ມັນ": {
+    "normal": "/audio/ມ_ນ_705ee8716d30.mp3",
+    "slow": "/audio/ມ_ນ_61dff99ed065.mp3"
+  },
+  "ແຕງ": {
+    "normal": "/audio/ແຕງ_d4cfafcfdb2e.mp3",
+    "slow": "/audio/ແຕງ_6ed2f0b5d776.mp3"
+  },
+  "ໝາກໂມ": {
+    "normal": "/audio/ໝາກໂມ_0f55f830c8e5.mp3",
+    "slow": "/audio/ໝາກໂມ_16b39c43adb7.mp3"
+  },
+  "ໝາກສາລີ": {
+    "normal": "/audio/ໝາກສາລ_03a99e89a297.mp3",
+    "slow": "/audio/ໝາກສາລ_6d3b8cd05114.mp3"
+  },
+  "ໝາກກ້ວຍ": {
+    "normal": "/audio/ໝາກກ_ວຍ_3929c17f3b99.mp3",
+    "slow": "/audio/ໝາກກ_ວຍ_dc0f0f697256.mp3"
+  },
+  "ມັນຕົ້ນ": {
+    "normal": "/audio/ມ_ນຕ__ນ_892709a222e8.mp3",
+    "slow": "/audio/ມ_ນຕ__ນ_ed2dd00d18e0.mp3"
+  },
+  "ປູກ": {
+    "normal": "/audio/ປ_ກ_aae7c58c5055.mp3",
+    "slow": "/audio/ປ_ກ_90246ecb798d.mp3"
+  },
+  "ເກັບ": {
+    "normal": "/audio/ເກ_ບ_545f8639af22.mp3",
+    "slow": "/audio/ເກ_ບ_dd52527b6e65.mp3"
+  },
+  "ສວນ": {
+    "normal": "/audio/ສວນ_6ab84202b6f3.mp3",
+    "slow": "/audio/ສວນ_f66288158969.mp3"
+  },
+  "ເມັດ": {
+    "normal": "/audio/ເມ_ດ_248fc1467c90.mp3",
+    "slow": "/audio/ເມ_ດ_a45f525eb3c8.mp3"
+  },
+  "ປຸ໋ຍ": {
+    "normal": "/audio/ປ__ຍ_3b423a64dd4b.mp3",
+    "slow": "/audio/ປ__ຍ_9be3aec76383.mp3"
+  },
+  "ສານເຄມີ": {
+    "normal": "/audio/ສານເຄມ_d9c89d25fc7a.mp3",
+    "slow": "/audio/ສານເຄມ_925936d167cc.mp3"
+  },
+  "ດິນ": {
+    "normal": "/audio/ດ_ນ_f4eef5b7b23a.mp3",
+    "slow": "/audio/ດ_ນ_67aa453638ed.mp3"
+  },
+  "ຝົນ": {
+    "normal": "/audio/ຝ_ນ_dc2fd1e8584f.mp3",
+    "slow": "/audio/ຝ_ນ_b8f21e078ff6.mp3"
+  },
+  "ແດດ": {
+    "normal": "/audio/ແດດ_ebe08a73beea.mp3",
+    "slow": "/audio/ແດດ_1f682a676756.mp3"
+  },
+  "ແປ້ງ": {
+    "normal": "/audio/ແປ_ງ_c3c641c2f179.mp3",
+    "slow": "/audio/ແປ_ງ_429e9f1f3009.mp3"
+  },
+  "ແປ້ງມັນ": {
+    "normal": "/audio/ແປ_ງມ_ນ_92c2930c7c4a.mp3",
+    "slow": "/audio/ແປ_ງມ_ນ_31f4b0458ede.mp3"
+  },
+  "ແຫ້ງ": {
+    "normal": "/audio/ແຫ_ງ_889cf831f9e2.mp3",
+    "slow": "/audio/ແຫ_ງ_c5aec785576d.mp3"
+  },
+  "ປົ່ນ": {
+    "normal": "/audio/ປ__ນ_ba8df0c7b7b4.mp3",
+    "slow": "/audio/ປ__ນ_c713ed50b31e.mp3"
+  },
+  "ກອງ": {
+    "normal": "/audio/ກອງ_5aac26128217.mp3",
+    "slow": "/audio/ກອງ_7b8139b18e60.mp3"
+  },
+  "ຕົ້ມ": {
+    "normal": "/audio/ຕ__ມ_3a1ca47fc0a3.mp3",
+    "slow": "/audio/ຕ__ມ_38fb479ef4a1.mp3"
+  },
+  "ລົດໄຖ": {
+    "normal": "/audio/ລ_ດໄຖ_7aab8c8781b3.mp3",
+    "slow": "/audio/ລ_ດໄຖ_cb94039e97c4.mp3"
+  },
+  "ເຄື່ອງ": {
+    "normal": "/audio/ເຄ__ອງ_adefbba89d63.mp3",
+    "slow": "/audio/ເຄ__ອງ_2f0576fea0ad.mp3"
+  },
+  "ສູບນ້ຳ": {
+    "normal": "/audio/ສ_ບນ_ຳ_430896bec435.mp3",
+    "slow": "/audio/ສ_ບນ_ຳ_1c5c15164c04.mp3"
+  },
+  "ສ້ອມແປງ": {
+    "normal": "/audio/ສ_ອມແປງ_f3da98bd086d.mp3",
+    "slow": "/audio/ສ_ອມແປງ_870df0f3ae1d.mp3"
+  },
+  "ນ້ຳມັນ": {
+    "normal": "/audio/ນ_ຳມ_ນ_92bbdce22544.mp3",
+    "slow": "/audio/ນ_ຳມ_ນ_8f757a6c37d0.mp3"
+  },
+  "ມື້ນີ້": {
+    "normal": "/audio/ມ__ນ_102f4f577583.mp3",
+    "slow": "/audio/ມ__ນ_f67a7f4a6e92.mp3"
+  },
+  "ມື້ອື່ນ": {
+    "normal": "/audio/ມ__ອ__ນ_cdffa29eac2a.mp3",
+    "slow": "/audio/ມ__ອ__ນ_c749ca2ea492.mp3"
+  },
+  "ເຊົ້າ": {
+    "normal": "/audio/ເຊ__າ_83cf46ea03fe.mp3",
+    "slow": "/audio/ເຊ__າ_51ff757b7ea8.mp3"
+  },
+  "ຕອນບ່າຍ": {
+    "normal": "/audio/ຕອນບ_າຍ_3a36e2b4fa51.mp3",
+    "slow": "/audio/ຕອນບ_າຍ_96f66a1299d5.mp3"
+  },
+  "ຕອນແລງ": {
+    "normal": "/audio/ຕອນແລງ_c0d92ffa1757.mp3",
+    "slow": "/audio/ຕອນແລງ_c289d8b0a631.mp3"
+  },
+  "ມື້": {
+    "normal": "/audio/ມ_ebb6093411e3.mp3",
+    "slow": "/audio/ມ_501330a620f9.mp3"
+  },
+  "ເຮັດ": {
+    "normal": "/audio/ເຮ_ດ_0662716e85be.mp3",
+    "slow": "/audio/ເຮ_ດ_bb44bc783cf9.mp3"
+  },
+  "ເຮັດການ": {
+    "normal": "/audio/ເຮ_ດການ_4f6d74a0daa4.mp3",
+    "slow": "/audio/ເຮ_ດການ_2249525c9640.mp3"
+  },
+  "ພັກຜ່ອນ": {
+    "normal": "/audio/ພ_ກຜ_ອນ_e23f8fd97080.mp3",
+    "slow": "/audio/ພ_ກຜ_ອນ_8c0598a7764d.mp3"
+  },
+  "ແລ້ວ": {
+    "normal": "/audio/ແລ_ວ_68736cecf005.mp3",
+    "slow": "/audio/ແລ_ວ_8f8631e15558.mp3"
+  },
+  "ໄວ": {
+    "normal": "/audio/ໄວ_73869b37be45.mp3",
+    "slow": "/audio/ໄວ_324ca819410f.mp3"
+  },
+  "ຊ້າ": {
+    "normal": "/audio/ຊ_າ_24055ade9d15.mp3",
+    "slow": "/audio/ຊ_າ_224c44eb657e.mp3"
+  },
+  "ລະວັດ": {
+    "normal": "/audio/ລະວ_ດ_5cdd4d22e20e.mp3",
+    "slow": "/audio/ລະວ_ດ_dadbd1ee99ce.mp3"
+  },
+  "ຄ່າແຮງງານ": {
+    "normal": "/audio/ຄ_າແຮງງານ_de4222ccb48e.mp3",
+    "slow": "/audio/ຄ_າແຮງງານ_40a5e2be9933.mp3"
+  },
+  "ເງິນ": {
+    "normal": "/audio/ເງ_ນ_15c323758d70.mp3",
+    "slow": "/audio/ເງ_ນ_a0b09547863f.mp3"
+  },
+  "ລ້າງ": {
+    "normal": "/audio/ລ_າງ_62cac926a797.mp3",
+    "slow": "/audio/ລ_າງ_e66ad9716d04.mp3"
+  },
+  "ຂົນ": {
+    "normal": "/audio/ຂ_ນ_93de59ff3429.mp3",
+    "slow": "/audio/ຂ_ນ_6fa5aac90ab1.mp3"
+  },
+  "ປູກໝາກມ່ວງ": {
+    "normal": "/audio/ປ_ກໝາກມ_ວງ_8691b665c214.mp3",
+    "slow": "/audio/ປ_ກໝາກມ_ວງ_1f7a82544e01.mp3"
+  },
+  "ປູກມັນ": {
+    "normal": "/audio/ປ_ກມ_ນ_fb95901710f6.mp3",
+    "slow": "/audio/ປ_ກມ_ນ_3ddd124ab935.mp3"
+  },
+  "ປູກແຕງ": {
+    "normal": "/audio/ປ_ກແຕງ_49360be72c32.mp3",
+    "slow": "/audio/ປ_ກແຕງ_361b01846edb.mp3"
+  },
+  "ປູກໝາກໂມ": {
+    "normal": "/audio/ປ_ກໝາກໂມ_2017de7f948d.mp3",
+    "slow": "/audio/ປ_ກໝາກໂມ_c7e575dfc4bd.mp3"
+  },
+  "ເກັບໝາກມ່ວງ": {
+    "normal": "/audio/ເກ_ບໝາກມ_ວງ_d975988e50f5.mp3",
+    "slow": "/audio/ເກ_ບໝາກມ_ວງ_735d8f3eff09.mp3"
+  },
+  "ເກັບມັນ": {
+    "normal": "/audio/ເກ_ບມ_ນ_1076f510d4f0.mp3",
+    "slow": "/audio/ເກ_ບມ_ນ_7a9fceae167e.mp3"
+  },
+  "ເກັບແຕງ": {
+    "normal": "/audio/ເກ_ບແຕງ_50e93f3adb00.mp3",
+    "slow": "/audio/ເກ_ບແຕງ_8536dc771cfa.mp3"
+  },
+  "ເກັບໝາກໂມ": {
+    "normal": "/audio/ເກ_ບໝາກໂມ_33e536a58763.mp3",
+    "slow": "/audio/ເກ_ບໝາກໂມ_f8fbb6aff4a7.mp3"
+  },
+  "ຫົດນ້ຳ": {
+    "normal": "/audio/ຫ_ດນ_ຳ_c5d6147db002.mp3",
+    "slow": "/audio/ຫ_ດນ_ຳ_a756fead43d4.mp3"
+  },
+  "ໃສ່ປຸ໋ຍ": {
+    "normal": "/audio/ໃສ_ປ__ຍ_9a181b538185.mp3",
+    "slow": "/audio/ໃສ_ປ__ຍ_dd6a38f961f3.mp3"
+  },
+  "ຖາງຫຍ້າ": {
+    "normal": "/audio/ຖາງຫຍ_າ_204015083ea9.mp3",
+    "slow": "/audio/ຖາງຫຍ_າ_b224fa99e740.mp3"
+  },
+  "ເອົາລົດມາ": {
+    "normal": "/audio/ເອ_າລ_ດມາ_4a065003a358.mp3",
+    "slow": "/audio/ເອ_າລ_ດມາ_3d16f04b203e.mp3"
+  },
+  "ລົດເສຍ": {
+    "normal": "/audio/ລ_ດເສຍ_2e8d99fce463.mp3",
+    "slow": "/audio/ລ_ດເສຍ_4de001600e74.mp3"
+  },
+  "ສ້ອມແປງລົດ": {
+    "normal": "/audio/ສ_ອມແປງລ_ດ_d409e89044f6.mp3",
+    "slow": "/audio/ສ_ອມແປງລ_ດ_e29d3ef74d31.mp3"
+  },
+  "ເປີດນ້ຳ": {
+    "normal": "/audio/ເປ_ດນ_ຳ_07db04cff1c3.mp3",
+    "slow": "/audio/ເປ_ດນ_ຳ_337dedbdf882.mp3"
+  },
+  "ປິດນ້ຳ": {
+    "normal": "/audio/ປ_ດນ_ຳ_51e827b349d4.mp3",
+    "slow": "/audio/ປ_ດນ_ຳ_4c23418c2cf7.mp3"
+  },
+  "ເຮັດແປ້ງມັນ": {
+    "normal": "/audio/ເຮ_ດແປ_ງມ_ນ_636b8bf709c3.mp3",
+    "slow": "/audio/ເຮ_ດແປ_ງມ_ນ_c078ee25929f.mp3"
+  },
+  "ຕົ້ມມັນ": {
+    "normal": "/audio/ຕ__ມມ_ນ_7a0d72515dda.mp3",
+    "slow": "/audio/ຕ__ມມ_ນ_a0d5312f3607.mp3"
+  },
+  "ປົ່ນມັນ": {
+    "normal": "/audio/ປ__ນມ_ນ_25140035b781.mp3",
+    "slow": "/audio/ປ__ນມ_ນ_211a8b96b1b4.mp3"
+  },
+  "ກອງແປ້ງ": {
+    "normal": "/audio/ກອງແປ_ງ_5f479f1296b0.mp3",
+    "slow": "/audio/ກອງແປ_ງ_4d9cb42e7889.mp3"
+  },
+  "ຕາກແຫ້ງ": {
+    "normal": "/audio/ຕາກແຫ_ງ_3c3e375a56a7.mp3",
+    "slow": "/audio/ຕາກແຫ_ງ_520b03eeb794.mp3"
+  },
+  "ມື້ນີ້ເຮັດຫຍັງ?": {
+    "normal": "/audio/ມ__ນ__ເຮ_ດຫຍ_ງ_9ea204a22fff.mp3",
+    "slow": "/audio/ມ__ນ__ເຮ_ດຫຍ_ງ_8102629153a0.mp3"
+  },
+  "ມື້ອື່ນມາແຕ່ເຊົ້າ": {
+    "normal": "/audio/ມ__ອ__ນມາແຕ_ເຊ__າ_845c16176b29.mp3",
+    "slow": "/audio/ມ__ອ__ນມາແຕ_ເຊ__າ_ff6ad0c9aa27.mp3"
+  },
+  "ພັກຜ່ອນກ່ອນ": {
+    "normal": "/audio/ພ_ກຜ_ອນກ_ອນ_bf663b9d82dd.mp3",
+    "slow": "/audio/ພ_ກຜ_ອນກ_ອນ_c872827c0429.mp3"
+  },
+  "ເຮັດໃຫ້ແລ້ວ": {
+    "normal": "/audio/ເຮ_ດໃຫ_ແລ_ວ_231fafd5227c.mp3",
+    "slow": "/audio/ເຮ_ດໃຫ_ແລ_ວ_75bc98cd45de.mp3"
+  },
+  "ເຮັດຊ້າໆ": {
+    "normal": "/audio/ເຮ_ດຊ_າໆ_f34748ef12f3.mp3",
+    "slow": "/audio/ເຮ_ດຊ_າໆ_40cdc3982e98.mp3"
+  },
+  "ເຮັດໄວໆ": {
+    "normal": "/audio/ເຮ_ດໄວໆ_114c7aee6028.mp3",
+    "slow": "/audio/ເຮ_ດໄວໆ_c24c360411cd.mp3"
+  },
+  "ລະວັດແດ່": {
+    "normal": "/audio/ລະວ_ດແດ_b07325a04dc4.mp3",
+    "slow": "/audio/ລະວ_ດແດ_458e164c6a52.mp3"
+  },
+  "ມື້ນີ້ຈ່າຍເງິນ": {
+    "normal": "/audio/ມ__ນ__ຈ_າຍເງ_ນ_767948165c00.mp3",
+    "slow": "/audio/ມ__ນ__ຈ_າຍເງ_ນ_6e2784075b03.mp3"
+  },
+  "ຄ່າແຮງງານເທົ່າໃດ?": {
+    "normal": "/audio/ຄ_າແຮງງານເທ__າໃດ_daabd4084eda.mp3",
+    "slow": "/audio/ຄ_າແຮງງານເທ__າໃດ_02a6cab1ac24.mp3"
+  },
+  "ຂົນຂຶ້ນລົດ": {
+    "normal": "/audio/ຂ_ນຂ__ນລ_ດ_a8a9f77d38e3.mp3",
+    "slow": "/audio/ຂ_ນຂ__ນລ_ດ_9dbbb3194589.mp3"
+  },
+  "ລົງຂອງ": {
+    "normal": "/audio/ລ_ງຂອງ_51178c7c7e84.mp3",
+    "slow": "/audio/ລ_ງຂອງ_83c76ab9446b.mp3"
+  },
+  "ໝາກມ່ວງກິໂລລະເທົ່າໃດ?": {
+    "normal": "/audio/ໝາກມ_ວງກ_ໂລລະເທ__າໃດ_bba63f2e02c1.mp3",
+    "slow": "/audio/ໝາກມ_ວງກ_ໂລລະເທ__າໃດ_b8c619e0aae0.mp3"
+  },
+  "ຊື້ທັງໝົດ": {
+    "normal": "/audio/ຊ__ທ_ງໝ_ດ_5772f3eac340.mp3",
+    "slow": "/audio/ຊ__ທ_ງໝ_ດ_1122cefbd24a.mp3"
+  },
+  "ຂາຍຍົກ": {
+    "normal": "/audio/ຂາຍຍ_ກ_85baeab4984a.mp3",
+    "slow": "/audio/ຂາຍຍ_ກ_70b9e1e3f0c5.mp3"
+  },
+  "ຂາຍຍ່ອຍ": {
+    "normal": "/audio/ຂາຍຍ_ອຍ_db15f80d84e4.mp3",
+    "slow": "/audio/ຂາຍຍ_ອຍ_6b1951f32dfb.mp3"
+  },
+  "ລົດມາແລ້ວ": {
+    "normal": "/audio/ລ_ດມາແລ_ວ_69fe4bd2281b.mp3",
+    "slow": "/audio/ລ_ດມາແລ_ວ_4293a87ba57e.mp3"
+  },
+  "ເປີດເຄື່ອງ": {
+    "normal": "/audio/ເປ_ດເຄ__ອງ_89e4e61a0ad8.mp3",
+    "slow": "/audio/ເປ_ດເຄ__ອງ_9bcc8e5a73ae.mp3"
+  },
+  "ປິດເຄື່ອງ": {
+    "normal": "/audio/ປ_ດເຄ__ອງ_8ed84633f5b6.mp3",
+    "slow": "/audio/ປ_ດເຄ__ອງ_04a219ba9b6e.mp3"
+  },
+  "ຕ້ອງການຄົນ": {
+    "normal": "/audio/ຕ_ອງການຄ_ນ_e0ce61ea4185.mp3",
+    "slow": "/audio/ຕ_ອງການຄ_ນ_bb70ec9222ae.mp3"
+  },
+  "ມີຄົນຈັກຄົນ?": {
+    "normal": "/audio/ມ_ຄ_ນຈ_ກຄ_ນ_a6da302d94cf.mp3",
+    "slow": "/audio/ມ_ຄ_ນຈ_ກຄ_ນ_15a88ee15507.mp3"
+  },
+  "ມາເຕັມ": {
+    "normal": "/audio/ມາເຕ_ມ_c5d76de9c511.mp3",
+    "slow": "/audio/ມາເຕ_ມ_8c88aefcebcf.mp3"
+  },
+  "ຂາດຄົນ": {
+    "normal": "/audio/ຂາດຄ_ນ_97cd1efb1054.mp3",
+    "slow": "/audio/ຂາດຄ_ນ_6d3d5453d860.mp3"
+  },
+  "ເອົາມັນຂຶ້ນລົດ": {
+    "normal": "/audio/ເອ_າມ_ນຂ__ນລ_ດ_18c7035e12f5.mp3",
+    "slow": "/audio/ເອ_າມ_ນຂ__ນລ_ດ_ea67c6f16ec8.mp3"
+  },
+  "ລ້າງມັນ": {
+    "normal": "/audio/ລ_າງມ_ນ_e177bf99c275.mp3",
+    "slow": "/audio/ລ_າງມ_ນ_c9ed48b3aeb8.mp3"
+  },
+  "ຕັດແຕງ": {
+    "normal": "/audio/ຕ_ດແຕງ_5dba5228351c.mp3",
+    "slow": "/audio/ຕ_ດແຕງ_ad9b091c9363.mp3"
+  },
+  "ເກັບຜົນ": {
+    "normal": "/audio/ເກ_ບຜ_ນ_ec06cb749318.mp3",
+    "slow": "/audio/ເກ_ບຜ_ນ_914893d3dc49.mp3"
   }
 }

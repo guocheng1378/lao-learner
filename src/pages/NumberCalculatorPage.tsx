@@ -497,6 +497,182 @@ export default function NumberCalculatorPage({ goBack }: Props) {
         </div>
       </div>
 
+      {/* Crops */}
+      <div className="px-4 pb-2">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm">
+          <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2">🌱 作物（点击听发音）</h3>
+          <div className="grid grid-cols-4 gap-1.5">
+            {[
+              { cn: '芒果', lao: 'ໝາກມ່ວງ', pinyin: 'mak muang' },
+              { cn: '红薯', lao: 'ມັນ', pinyin: 'man' },
+              { cn: '黄瓜', lao: 'ແຕງ', pinyin: 'taeng' },
+              { cn: '西瓜', lao: 'ໝາກໂມ', pinyin: 'mak mo' },
+              { cn: '水稻', lao: 'ເຂົ້າ', pinyin: 'khao' },
+              { cn: '玉米', lao: 'ໝາກສາລີ', pinyin: 'mak sali' },
+              { cn: '香蕉', lao: 'ໝາກກ້ວຍ', pinyin: 'mak kuai' },
+              { cn: '木薯', lao: 'ມັນຕົ້ນ', pinyin: 'man ton' },
+            ].map(c => (
+              <button
+                key={c.cn}
+                onClick={() => speakLao(c.lao, 1.3)}
+                disabled={isSpeaking}
+                className="flex flex-col items-center py-2 bg-green-50 dark:bg-green-900/20 rounded-xl hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors active:scale-95"
+              >
+                <span className="text-sm font-bold text-gray-800 dark:text-white">{c.cn}</span>
+                <span className="lao-text text-[10px] text-green-600 dark:text-green-400 font-medium">{c.lao}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Farming Operations */}
+      <div className="px-4 pb-2">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm">
+          <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2">🚜 农活操作</h3>
+          <div className="space-y-1">
+            {[
+              { lao: 'ປູກໝາກມ່ວງ', cn: '种芒果', pinyin: 'pouk mak muang' },
+              { lao: 'ປູກມັນ', cn: '种红薯', pinyin: 'pouk man' },
+              { lao: 'ປູກແຕງ', cn: '种黄瓜', pinyin: 'pouk taeng' },
+              { lao: 'ປູກໝາກໂມ', cn: '种西瓜', pinyin: 'pouk mak mo' },
+              { lao: 'ເກັບໝາກມ່ວງ', cn: '收芒果', pinyin: 'kaeb mak muang' },
+              { lao: 'ເກັບມັນ', cn: '收红薯', pinyin: 'kaeb man' },
+              { lao: 'ເກັບແຕງ', cn: '收黄瓜', pinyin: 'kaeb taeng' },
+              { lao: 'ເກັບໝາກໂມ', cn: '收西瓜', pinyin: 'kaeb mak mo' },
+              { lao: 'ຫົດນ້ຳ', cn: '浇水', pinyin: 'hot nam' },
+              { lao: 'ໃສ່ປຸ໋ຍ', cn: '施肥', pinyin: 'sai pui' },
+              { lao: 'ຖາງຫຍ້າ', cn: '除草', pinyin: 'thang nya' },
+            ].map((p, i) => (
+              <div key={i} className="flex items-center justify-between py-1.5">
+                <div className="flex-1 min-w-0">
+                  <span className="text-sm font-medium text-gray-800 dark:text-white">{p.cn}</span>
+                  <span className="lao-text text-xs text-green-600 dark:text-green-400 ml-2">{p.lao}</span>
+                  <span className="text-[9px] text-gray-400 ml-1">{p.pinyin}</span>
+                </div>
+                <div className="flex gap-1 ml-1">
+                  <button onClick={() => speakLao(p.lao, 1.3)} disabled={isSpeaking}
+                    className="p-1 bg-green-100 dark:bg-green-900/30 rounded-lg text-green-600 dark:text-green-400 text-xs">🔊</button>
+                  <button onClick={() => speakSlow(p.lao)} disabled={isSpeaking}
+                    className="p-1 bg-purple-100 dark:bg-purple-900/30 rounded-lg text-purple-600 dark:text-purple-400 text-xs">🐢</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Processing - Sweet Potato Starch */}
+      <div className="px-4 pb-2">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm">
+          <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2">🏭 红薯粉加工</h3>
+          <div className="space-y-1">
+            {[
+              { lao: 'ເຮັດແປ້ງມັນ', cn: '做红薯粉', pinyin: 'het paeng man' },
+              { lao: 'ລ້າງມັນ', cn: '洗红薯', pinyin: 'lang man' },
+              { lao: 'ປົ່ນມັນ', cn: '磨碎', pinyin: 'pon man' },
+              { lao: 'ກອງແປ້ງ', cn: '过滤淀粉', pinyin: 'kong paeng' },
+              { lao: 'ຕົ້ມມັນ', cn: '煮/蒸', pinyin: 'tom man' },
+              { lao: 'ຕາກແຫ້ງ', cn: '晾干', pinyin: 'tak haeng' },
+              { lao: 'ເອົາມັນຂຶ້ນລົດ', cn: '把红薯装车', pinyin: 'ao man khuen lot' },
+            ].map((p, i) => (
+              <div key={i} className="flex items-center justify-between py-1.5">
+                <div className="flex-1 min-w-0">
+                  <span className="text-sm font-medium text-gray-800 dark:text-white">{p.cn}</span>
+                  <span className="lao-text text-xs text-orange-600 dark:text-orange-400 ml-2">{p.lao}</span>
+                  <span className="text-[9px] text-gray-400 ml-1">{p.pinyin}</span>
+                </div>
+                <div className="flex gap-1 ml-1">
+                  <button onClick={() => speakLao(p.lao, 1.3)} disabled={isSpeaking}
+                    className="p-1 bg-green-100 dark:bg-green-900/30 rounded-lg text-green-600 dark:text-green-400 text-xs">🔊</button>
+                  <button onClick={() => speakSlow(p.lao)} disabled={isSpeaking}
+                    className="p-1 bg-purple-100 dark:bg-purple-900/30 rounded-lg text-purple-600 dark:text-purple-400 text-xs">🐢</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Worker Management */}
+      <div className="px-4 pb-2">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm">
+          <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2">👷 管理工人</h3>
+          <div className="space-y-1">
+            {[
+              { lao: 'ມື້ນີ້ເຮັດຫຍັງ?', cn: '今天干什么？', pinyin: 'mui ni het nyang?' },
+              { lao: 'ເອົາລົດມາ', cn: '把车开过来', pinyin: 'ao lot ma' },
+              { lao: 'ລົດເສຍ', cn: '车坏了', pinyin: 'lot sia' },
+              { lao: 'ສ້ອມແປງລົດ', cn: '修车', pinyin: 'sompaeng lot' },
+              { lao: 'ເປີດນ້ຳ', cn: '开水（水泵）', pinyin: 'poet nam' },
+              { lao: 'ປິດນ້ຳ', cn: '关水', pinyin: 'pit nam' },
+              { lao: 'ເປີດເຄື່ອງ', cn: '开机器', pinyin: 'poet khueang' },
+              { lao: 'ປິດເຄື່ອງ', cn: '关机器', pinyin: 'pit khueang' },
+              { lao: 'ມື້ອື່ນມາແຕ່ເຊົ້າ', cn: '明天早上来', pinyin: 'mui un ma tae sao' },
+              { lao: 'ພັກຜ່ອນກ່ອນ', cn: '先休息', pinyin: 'pak phon kon' },
+              { lao: 'ເຮັດໃຫ້ແລ້ວ', cn: '做完它', pinyin: 'het hai laew' },
+              { lao: 'ເຮັດໄວໆ', cn: '做快点', pinyin: 'het vai vai' },
+              { lao: 'ເຮັດຊ້າໆ', cn: '做慢点', pinyin: 'het sa sa' },
+              { lao: 'ລະວັດແດ່', cn: '小心点', pinyin: 'lavat dae' },
+              { lao: 'ຂົນຂຶ້ນລົດ', cn: '搬上车', pinyin: 'khon khuen lot' },
+              { lao: 'ລົງຂອງ', cn: '卸货', pinyin: 'long khong' },
+              { lao: 'ມື້ນີ້ຈ່າຍເງິນ', cn: '今天发工资', pinyin: 'mui ni chai ngoen' },
+              { lao: 'ຄ່າແຮງງານເທົ່າໃດ?', cn: '工钱多少？', pinyin: 'kha haeng ngan thao dai?' },
+              { lao: 'ຕ້ອງການຄົນ', cn: '需要人', pinyin: 'tongkan khon' },
+              { lao: 'ຂາດຄົນ', cn: '缺人', pinyin: 'khat khon' },
+              { lao: 'ມີຄົນຈັກຄົນ?', cn: '有几个人？', pinyin: 'mi khon jak khon?' },
+              { lao: 'ມາເຕັມ', cn: '全来了', pinyin: 'ma tem' },
+            ].map((p, i) => (
+              <div key={i} className="flex items-center justify-between py-1.5">
+                <div className="flex-1 min-w-0">
+                  <span className="text-sm font-medium text-gray-800 dark:text-white">{p.cn}</span>
+                  <span className="lao-text text-xs text-blue-600 dark:text-blue-400 ml-2">{p.lao}</span>
+                  <span className="text-[9px] text-gray-400 ml-1">{p.pinyin}</span>
+                </div>
+                <div className="flex gap-1 ml-1">
+                  <button onClick={() => speakLao(p.lao, 1.3)} disabled={isSpeaking}
+                    className="p-1 bg-green-100 dark:bg-green-900/30 rounded-lg text-green-600 dark:text-green-400 text-xs">🔊</button>
+                  <button onClick={() => speakSlow(p.lao)} disabled={isSpeaking}
+                    className="p-1 bg-purple-100 dark:bg-purple-900/30 rounded-lg text-purple-600 dark:text-purple-400 text-xs">🐢</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Selling & Transport */}
+      <div className="px-4 pb-2">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm">
+          <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2">💰 卖货 & 运输</h3>
+          <div className="space-y-1">
+            {[
+              { lao: 'ໝາກມ່ວງກິໂລລະເທົ່າໃດ?', cn: '芒果多少钱一公斤？', pinyin: 'mak muang ki lo la thao dai?' },
+              { lao: 'ຊື້ທັງໝົດ', cn: '全买了', pinyin: 'sue thang mot' },
+              { lao: 'ຂາຍຍົກ', cn: '批发', pinyin: 'khai yok' },
+              { lao: 'ຂາຍຍ່ອຍ', cn: '零售', pinyin: 'khai noi' },
+              { lao: 'ລົດມາແລ້ວ', cn: '车来了', pinyin: 'lot ma laew' },
+              { lao: 'ຕັດແຕງ', cn: '摘黄瓜', pinyin: 'tat taeng' },
+              { lao: 'ເກັບຜົນ', cn: '收果实/收获', pinyin: 'kaeb phon' },
+            ].map((p, i) => (
+              <div key={i} className="flex items-center justify-between py-1.5">
+                <div className="flex-1 min-w-0">
+                  <span className="text-sm font-medium text-gray-800 dark:text-white">{p.cn}</span>
+                  <span className="lao-text text-xs text-amber-600 dark:text-amber-400 ml-2">{p.lao}</span>
+                  <span className="text-[9px] text-gray-400 ml-1">{p.pinyin}</span>
+                </div>
+                <div className="flex gap-1 ml-1">
+                  <button onClick={() => speakLao(p.lao, 1.3)} disabled={isSpeaking}
+                    className="p-1 bg-green-100 dark:bg-green-900/30 rounded-lg text-green-600 dark:text-green-400 text-xs">🔊</button>
+                  <button onClick={() => speakSlow(p.lao)} disabled={isSpeaking}
+                    className="p-1 bg-purple-100 dark:bg-purple-900/30 rounded-lg text-purple-600 dark:text-purple-400 text-xs">🐢</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Currency Converter */}
       <div className="px-4 pb-2">
         <button
