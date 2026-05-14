@@ -210,24 +210,25 @@ export default function NumberCalculatorPage({ goBack }: Props) {
         {/* Result */}
         {result && (
           <div className="space-y-3">
-            {/* Lao Reading - Main Feature */}
+            {/* Total Amount with Currency - Main Feature */}
             <div className="bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl p-5 text-white">
-              <div className="text-sm opacity-80 mb-1">🇱🇦 老挝语读法</div>
-              <div className="lao-text text-3xl font-bold mb-4">{result.lao}</div>
-              <div className="flex gap-2">
+              <div className="text-sm opacity-80 mb-1">💰 总金额老挝语</div>
+              <div className="lao-text text-3xl font-bold mb-1">{result.lao}</div>
+              <div className="lao-text text-lg opacity-90 mb-4">{result.lao} ກີບ</div>
+              <div className="grid grid-cols-2 gap-2">
                 <button
-                  onClick={() => speakLao(result.lao)}
+                  onClick={() => speakLao(result.lao + ' ກີບ')}
                   disabled={isSpeaking}
-                  className="flex-1 py-2.5 bg-white/20 rounded-xl text-sm font-semibold hover:bg-white/30 transition-colors active:scale-95"
+                  className="py-3 bg-white/20 rounded-xl text-sm font-semibold hover:bg-white/30 transition-colors active:scale-95"
                 >
-                  {isSpeaking ? '🔊 播放中' : '🔊 正常语速'}
+                  🔊 {result.number >= 10000 ? '总额发音' : '听发音'}
                 </button>
                 <button
-                  onClick={() => speakSlow(result.lao)}
+                  onClick={() => speakSlow(result.lao + ' ກີບ')}
                   disabled={isSpeaking}
-                  className="flex-1 py-2.5 bg-white/20 rounded-xl text-sm font-semibold hover:bg-white/30 transition-colors active:scale-95"
+                  className="py-3 bg-white/20 rounded-xl text-sm font-semibold hover:bg-white/30 transition-colors active:scale-95"
                 >
-                  {isSpeaking ? '🔊 播放中' : '🐢 慢速'}
+                  🐢 慢速
                 </button>
               </div>
             </div>
@@ -300,18 +301,72 @@ export default function NumberCalculatorPage({ goBack }: Props) {
                 <div>
                   <div className="text-xs text-gray-400 mb-1">基普写法</div>
                   <div className="text-xl font-bold text-gray-800 dark:text-white">{result.kip}</div>
+                  <div className="lao-text text-sm text-gray-500 dark:text-gray-400 mt-1">{result.lao} ກີບ</div>
                 </div>
-                <button
-                  onClick={() => speakLao(result.number.toLocaleString().replace(/,/g, '') + ' ກີບ')}
-                  disabled={isSpeaking}
-                  className="p-3 bg-green-100 dark:bg-green-900/30 rounded-xl text-green-600 dark:text-green-400 hover:bg-green-200 transition-colors"
-                >
-                  🔊
-                </button>
+                <div className="flex flex-col gap-1">
+                  <button
+                    onClick={() => speakLao(result.lao + ' ກີບ')}
+                    disabled={isSpeaking}
+                    className="px-3 py-2 bg-green-100 dark:bg-green-900/30 rounded-lg text-green-600 dark:text-green-400 hover:bg-green-200 transition-colors text-sm font-medium"
+                  >
+                    🔊 {result.lao} ກີບ
+                  </button>
+                  <button
+                    onClick={() => speakSlow(result.lao + ' ກີບ')}
+                    disabled={isSpeaking}
+                    className="px-3 py-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg text-purple-600 dark:text-purple-400 hover:bg-purple-200 transition-colors text-xs"
+                  >
+                    🐢 慢速
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         )}
+
+        {/* Common Business Amounts */}
+        <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm">
+          <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-3">💰 常用报价（点击听发音）</h3>
+          <div className="space-y-1.5">
+            {[
+              { num: 5000, lao: 'ຫ້າພັນກີບ', cn: '五千基普', approx: '≈ ¥2' },
+              { num: 10000, lao: 'ສິບພັນກີບ', cn: '一万基普', approx: '≈ ¥4' },
+              { num: 20000, lao: 'ຊາວພັນກີບ', cn: '两万基普', approx: '≈ ¥8' },
+              { num: 50000, lao: 'ຫ້າສິບພັນກີບ', cn: '五万基普', approx: '≈ ¥20' },
+              { num: 100000, lao: 'ໜຶ່ງແສນກີບ', cn: '十万基普', approx: '≈ ¥40' },
+              { num: 200000, lao: 'ສອງແສນກີບ', cn: '二十万基普', approx: '≈ ¥80' },
+              { num: 500000, lao: 'ຫ້າແສນກີບ', cn: '五十万基普', approx: '≈ ¥200' },
+              { num: 1000000, lao: 'ໜຶ່ງລ້ານກີບ', cn: '一百万基普', approx: '≈ ¥400' },
+              { num: 5000000, lao: 'ຫ້າລ້ານກີບ', cn: '五百万基普', approx: '≈ ¥2,000' },
+            ].map(item => (
+              <div key={item.num} className="flex items-center justify-between py-2 border-b border-gray-100 dark:border-gray-700 last:border-0">
+                <div className="flex-1">
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-semibold text-gray-800 dark:text-white">{item.cn}</span>
+                    <span className="text-xs text-gray-400">{item.approx}</span>
+                  </div>
+                  <span className="lao-text text-xs text-blue-600 dark:text-blue-400">{item.lao}</span>
+                </div>
+                <div className="flex gap-1">
+                  <button
+                    onClick={() => speakLao(item.lao)}
+                    disabled={isSpeaking}
+                    className="p-1.5 bg-green-100 dark:bg-green-900/30 rounded-lg text-green-600 dark:text-green-400 hover:bg-green-200 transition-colors"
+                  >
+                    🔊
+                  </button>
+                  <button
+                    onClick={() => speakSlow(item.lao)}
+                    disabled={isSpeaking}
+                    className="p-1.5 bg-purple-100 dark:bg-purple-900/30 rounded-lg text-purple-600 dark:text-purple-400 hover:bg-purple-200 transition-colors"
+                  >
+                    🐢
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* Price Phrases */}
         <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm">

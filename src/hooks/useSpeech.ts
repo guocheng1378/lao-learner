@@ -98,12 +98,47 @@ export function useSpeech() {
     return true;
   }, []);
 
+  // 顺序播放多个音频片段
+  const playAudioSequence = useCallback((srcs: string[]) => {
+    const audio = audioRef.current;
+    if (!audio || srcs.length === 0) return false;
+
+    audio.pause();
+    audio.currentTime = 0;
+    synthRef.current?.cancel();
+
+    let index = 0;
+    const playNext = () => {
+      if (index >= srcs.length) {
+        setIsSpeaking(false);
+        return;
+      }
+      const fullSrc = base + srcs[index].replace(/^\//, '');
+      audio.src = fullSrc;
+      audio.play().catch(() => {
+        // 跳过失败的片段，继续下一个
+        index++;
+        playNext();
+      });
+    };
+
+    audio.onended = () => {
+      index++;
+      playNext();
+    };
+
+    setIsSpeaking(true);
+    playNext();
+    return true;
+  }, []);
+
   // 停止播放
   const stopAll = useCallback(() => {
     const audio = audioRef.current;
     if (audio) {
       audio.pause();
       audio.currentTime = 0;
+      audio.onended = () => setIsSpeaking(false); // 重置 onended
     }
     synthRef.current?.cancel();
     setIsSpeaking(false);
@@ -154,11 +189,18 @@ export function useSpeech() {
     if (entry?.normal) {
       playAudioFile(entry.normal);
     } else {
-      // Fallback: 无预生成音频时尝试 Web Speech API
-      console.warn('无预生成音频，回退到 Web Speech API:', text);
-      speakText(text, 'lo');
+      // 尝试按空格拆分为多个词顺序播放
+      const words = text.split(/\s+/).filter(Boolean);
+      const srcs = words.map(w => laoAudioMap[w]?.normal).filter(Boolean) as string[];
+      if (srcs.length === words.length && srcs.length > 0) {
+        playAudioSequence(srcs);
+      } else {
+        // Fallback: 无预生成音频时尝试 Web Speech API
+        console.warn('无预生成音频，回退到 Web Speech API:', text);
+        speakText(text, 'lo');
+      }
     }
-  }, [playAudioFile, speakText]);
+  }, [playAudioFile, playAudioSequence, speakText]);
 
   // 泰语（Web Speech API）
   const speakThai = useCallback((text: string) => {
@@ -176,10 +218,15 @@ export function useSpeech() {
     if (entry?.slow) {
       playAudioFile(entry.slow);
     } else {
-      // Fallback
-      speakText(text, 'lo');
+      const words = text.split(/\s+/).filter(Boolean);
+      const srcs = words.map(w => laoAudioMap[w]?.slow).filter(Boolean) as string[];
+      if (srcs.length === words.length && srcs.length > 0) {
+        playAudioSequence(srcs);
+      } else {
+        speakText(text, 'lo');
+      }
     }
-  }, [playAudioFile, speakText]);
+  }, [playAudioFile, playAudioSequence, speakText]);
 
   // 通用
   const speak = useCallback((text: string, lang: string) => {

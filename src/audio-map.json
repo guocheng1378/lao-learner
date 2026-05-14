@@ -790,5 +790,41 @@
   "ສິບລ້ານ": {
     "normal": "/audio/lao_bb84666f2bd6.mp3",
     "slow": "/audio/lao_100a750a79a1.mp3"
+  },
+  "ຫ້າພັນກີບ": {
+    "normal": "/audio/lao_9dac55842a0a.mp3",
+    "slow": "/audio/lao_ed82780dd1aa.mp3"
+  },
+  "ສິບພັນກີບ": {
+    "normal": "/audio/lao_44a4d7136c41.mp3",
+    "slow": "/audio/lao_c1789f2c2030.mp3"
+  },
+  "ຊາວພັນກີບ": {
+    "normal": "/audio/lao_df51e5bb8fbb.mp3",
+    "slow": "/audio/lao_dfd7287d87da.mp3"
+  },
+  "ຫ້າສິບພັນກີບ": {
+    "normal": "/audio/lao_b239424983b4.mp3",
+    "slow": "/audio/lao_ccfd26d4231d.mp3"
+  },
+  "ໜຶ່ງແສນກີບ": {
+    "normal": "/audio/lao_6cde384cf180.mp3",
+    "slow": "/audio/lao_d5ed6e975455.mp3"
+  },
+  "ສອງແສນກີບ": {
+    "normal": "/audio/lao_6f7355f95199.mp3",
+    "slow": "/audio/lao_e691356804df.mp3"
+  },
+  "ຫ້າແສນກີບ": {
+    "normal": "/audio/lao_9420e3b6a713.mp3",
+    "slow": "/audio/lao_943b75a6d0b8.mp3"
+  },
+  "ໜຶ່ງລ້ານກີບ": {
+    "normal": "/audio/lao_68eb569c2141.mp3",
+    "slow": "/audio/lao_78322587d463.mp3"
+  },
+  "ຫ້າລ້ານກີບ": {
+    "normal": "/audio/lao_e4d951a85aca.mp3",
+    "slow": "/audio/lao_ad16c8110233.mp3"
   }
 }
