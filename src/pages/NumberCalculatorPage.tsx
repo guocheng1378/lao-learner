@@ -374,50 +374,51 @@ export default function NumberCalculatorPage({ goBack }: Props) {
   ];
 
   const btnStyle = (t: string) => t === 'func'
-    ? 'bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-500 active:bg-gray-400'
+    ? 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 active:bg-gray-300'
     : t === 'op'
-    ? 'bg-amber-500 text-white hover:bg-amber-400 active:bg-amber-600 shadow-md shadow-amber-500/20'
-    : 'bg-white dark:bg-gray-700 text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600 active:bg-gray-100 shadow-sm';
+    ? 'bg-gradient-to-br from-orange-500 to-amber-500 text-white hover:from-orange-400 hover:to-amber-400 active:from-orange-600 active:to-amber-600 shadow-lg shadow-orange-500/20'
+    : 'bg-white dark:bg-gray-800 text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-700 active:bg-gray-100 shadow-sm';
 
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex flex-col">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm sticky top-0 z-20">
-        <button onClick={goBack} className="p-2 -ml-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors">
-          <svg className="w-5 h-5 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+      <div className="glass bg-white/80 dark:bg-black/80 border-b border-gray-200/50 dark:border-gray-800/50 px-5 py-3 flex items-center gap-3 sticky top-0 z-20">
+        <button onClick={goBack} className="w-9 h-9 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors active:scale-90">
+          <svg className="w-4 h-4 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
           </svg>
         </button>
-        <h1 className="text-base font-medium text-gray-600 dark:text-gray-300">计算器</h1>
-        <div className="w-9" />
+        <h1 className="text-base font-bold dark:text-white">计算器</h1>
       </div>
 
       {/* Tab Bar */}
-      <div className="flex bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 sticky top-[52px] z-10">
-        {TABS.map(t => (
-          <button key={t.key} onClick={() => setTab(t.key)}
-            className={`flex-1 py-2.5 text-center text-xs font-medium transition-colors border-b-2 ${
-              tab === t.key
-                ? 'border-amber-500 text-amber-600 dark:text-amber-400'
-                : 'border-transparent text-gray-400 hover:text-gray-600 dark:hover:text-gray-300'
-            }`}>
-            <div className="text-base">{t.icon}</div>
-            <div className="mt-0.5">{t.label}</div>
-          </button>
-        ))}
+      <div className="px-5 py-2.5">
+        <div className="flex gap-1.5 bg-white dark:bg-[#1A1A1A] rounded-2xl p-1.5 shadow-sm">
+          {TABS.map(t => (
+            <button key={t.key} onClick={() => setTab(t.key)}
+              className={`flex-1 py-2 rounded-xl text-center transition-all ${
+                tab === t.key
+                  ? 'bg-orange-500 text-white shadow-md shadow-orange-500/25'
+                  : 'text-gray-400 hover:text-gray-600 dark:hover:text-gray-300'
+              }`}>
+              <div className="text-sm">{t.icon}</div>
+              <div className="text-[10px] font-semibold mt-0.5">{t.label}</div>
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* ======== 计算器 Tab ======== */}
       {tab === 'calc' && (
         <div className="flex-1 flex flex-col">
-          <div className="flex-1 flex flex-col bg-white dark:bg-gray-800 mx-2 mt-2 rounded-3xl shadow-lg overflow-hidden">
+          <div className="flex-1 flex flex-col bg-white dark:bg-[#1A1A1A] mx-3 mt-2 rounded-3xl shadow-lg shadow-black/5 overflow-hidden">
             {/* Display */}
             <div className="flex-1 flex flex-col justify-end px-6 pb-4 pt-6 min-h-[180px]">
-              <div className="text-right text-gray-400 dark:text-gray-500 text-base h-7 overflow-hidden font-light tracking-wide">
+              <div className="text-right text-gray-300 dark:text-gray-600 text-base h-7 overflow-hidden font-light tracking-wide">
                 {expression || '\u00A0'}
               </div>
               <div className={`text-right font-light tracking-tight transition-all duration-200 ${
-                result !== null ? 'text-5xl text-gray-900 dark:text-white' : 'text-4xl text-gray-700 dark:text-gray-200'
+                result !== null ? 'text-5xl text-gray-900 dark:text-white' : 'text-4xl text-gray-600 dark:text-gray-300'
               }`}>{displayText}</div>
             </div>
 
@@ -475,7 +476,7 @@ export default function NumberCalculatorPage({ goBack }: Props) {
                 { l: '10万', v: 100000 }, { l: '50万', v: 500000 }, { l: '100万', v: 1000000 }, { l: '500万', v: 5000000 },
               ].map(p => (
                 <button key={p.v} onClick={() => { setResult(p.v); setExpression(''); }}
-                  className="px-3 py-1.5 bg-white dark:bg-gray-800 rounded-full text-xs font-medium text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-blue-300 hover:text-blue-600 transition-colors whitespace-nowrap flex-shrink-0">
+                  className="px-3 py-1.5 bg-white dark:bg-[#1A1A1A] rounded-2xl text-xs font-semibold text-gray-600 dark:text-gray-300 shadow-sm hover:text-orange-500 transition-colors whitespace-nowrap flex-shrink-0">
                   {p.l}
                 </button>
               ))}
@@ -521,23 +522,23 @@ export default function NumberCalculatorPage({ goBack }: Props) {
       {/* ======== 农场 Tab ======== */}
       {tab === 'farm' && (
         <div className="flex-1 px-4 py-3 space-y-3 overflow-auto">
-          <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm">
+          <div className="bg-white dark:bg-[#1A1A1A] rounded-3xl p-4 shadow-sm">
             <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2">🌱 作物</h3>
             <GridWords items={CROPS} bgColor="bg-green-50 dark:bg-green-900/20" speakLao={speakLao} isSpeaking={isSpeaking} />
           </div>
-          <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm">
+          <div className="bg-white dark:bg-[#1A1A1A] rounded-3xl p-4 shadow-sm">
             <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2">🚜 农活</h3>
             <WordList items={FARM_SENTENCES} color="text-green-600 dark:text-green-400" speakLao={speakLao} speakSlow={speakSlow} isSpeaking={isSpeaking} />
           </div>
-          <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm">
+          <div className="bg-white dark:bg-[#1A1A1A] rounded-3xl p-4 shadow-sm">
             <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2">🏭 红薯粉加工</h3>
             <WordList items={PROCESSING} color="text-orange-600 dark:text-orange-400" speakLao={speakLao} speakSlow={speakSlow} isSpeaking={isSpeaking} />
           </div>
-          <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm">
+          <div className="bg-white dark:bg-[#1A1A1A] rounded-3xl p-4 shadow-sm">
             <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2">👷 管理工人</h3>
             <WordList items={WORKER} color="text-blue-600 dark:text-blue-400" speakLao={speakLao} speakSlow={speakSlow} isSpeaking={isSpeaking} />
           </div>
-          <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm">
+          <div className="bg-white dark:bg-[#1A1A1A] rounded-3xl p-4 shadow-sm">
             <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2">📦 量词</h3>
             <GridWords items={UNITS} bgColor="bg-gray-50 dark:bg-gray-700" speakLao={speakLao} isSpeaking={isSpeaking} />
           </div>
@@ -547,19 +548,19 @@ export default function NumberCalculatorPage({ goBack }: Props) {
       {/* ======== 做饭 Tab ======== */}
       {tab === 'cook' && (
         <div className="flex-1 px-4 py-3 space-y-3 overflow-auto">
-          <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm">
+          <div className="bg-white dark:bg-[#1A1A1A] rounded-3xl p-4 shadow-sm">
             <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2">🥘 做法</h3>
             <GridWords items={COOKING.slice(0, 8)} bgColor="bg-orange-50 dark:bg-orange-900/20" speakLao={speakLao} isSpeaking={isSpeaking} />
           </div>
-          <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm">
+          <div className="bg-white dark:bg-[#1A1A1A] rounded-3xl p-4 shadow-sm">
             <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2">🧂 调料</h3>
             <GridWords items={COOKING.slice(8, 14)} bgColor="bg-yellow-50 dark:bg-yellow-900/20" speakLao={speakLao} isSpeaking={isSpeaking} />
           </div>
-          <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm">
+          <div className="bg-white dark:bg-[#1A1A1A] rounded-3xl p-4 shadow-sm">
             <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2">🥩 食材</h3>
             <GridWords items={COOKING.slice(14, 22)} bgColor="bg-red-50 dark:bg-red-900/20" speakLao={speakLao} isSpeaking={isSpeaking} />
           </div>
-          <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm">
+          <div className="bg-white dark:bg-[#1A1A1A] rounded-3xl p-4 shadow-sm">
             <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2">😋 口味 & 用餐</h3>
             <WordList items={COOKING.slice(22)} color="text-orange-600 dark:text-orange-400" speakLao={speakLao} speakSlow={speakSlow} isSpeaking={isSpeaking} />
           </div>
@@ -569,20 +570,20 @@ export default function NumberCalculatorPage({ goBack }: Props) {
       {/* ======== 生意 Tab ======== */}
       {tab === 'business' && (
         <div className="flex-1 px-4 py-3 space-y-3 overflow-auto">
-          <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm">
+          <div className="bg-white dark:bg-[#1A1A1A] rounded-3xl p-4 shadow-sm">
             <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2">💰 卖货</h3>
             <WordList items={SELLING} color="text-amber-600 dark:text-amber-400" speakLao={speakLao} speakSlow={speakSlow} isSpeaking={isSpeaking} />
           </div>
-          <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm">
+          <div className="bg-white dark:bg-[#1A1A1A] rounded-3xl p-4 shadow-sm">
             <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2">🗣️ 砍价</h3>
             <WordList items={PHRASES} color="text-blue-600 dark:text-blue-400" speakLao={speakLao} speakSlow={speakSlow} isSpeaking={isSpeaking} />
           </div>
-          <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm">
+          <div className="bg-white dark:bg-[#1A1A1A] rounded-3xl p-4 shadow-sm">
             <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2">🔢 数字发音</h3>
             <div className="grid grid-cols-5 gap-1.5">
               {Object.entries(laoDigits).map(([num, lao]) => (
                 <button key={num} onClick={() => speakLao(lao, 1.3)} disabled={isSpeaking}
-                  className="flex flex-col items-center py-2 bg-gray-50 dark:bg-gray-700 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors active:scale-95">
+                  className="flex flex-col items-center py-2 bg-gray-50 dark:bg-gray-800/50 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors active:scale-95">
                   <span className="text-lg font-bold text-gray-800 dark:text-white">{num}</span>
                   <span className="lao-text text-[10px] text-blue-600 dark:text-blue-400 font-medium">{lao}</span>
                 </button>
@@ -595,7 +596,7 @@ export default function NumberCalculatorPage({ goBack }: Props) {
       {/* ======== 颜色 Tab ======== */}
       {tab === 'color' && (
         <div className="flex-1 px-4 py-3 space-y-3 overflow-auto">
-          <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm">
+          <div className="bg-white dark:bg-[#1A1A1A] rounded-3xl p-4 shadow-sm">
             <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2">🎨 颜色</h3>
             <div className="grid grid-cols-3 gap-2">
               {COLORS.map((c, i) => {
